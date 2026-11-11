@@ -5,6 +5,15 @@ on:
     - cron: '30 13 * * *'   # 8:30 Lima, modo completo
     - cron: '0 17 * * *'    # 12:00 Lima, modo novedades
     - cron: '30 20 * * *'   # 15:30 Lima, modo novedades
+    # Respaldos: GitHub a veces retrasa u omite una ejecución programada. Estas
+    # solo actúan si la franja anterior quedó sin atender (data/franjas.json);
+    # si ya se atendió, terminan sin consultar el sitio ni enviar nada.
+    - cron: '15 14 * * *'   # 9:15 Lima
+    - cron: '0 15 * * *'    # 10:00 Lima
+    - cron: '45 17 * * *'   # 12:45 Lima
+    - cron: '30 18 * * *'   # 13:30 Lima
+    - cron: '15 21 * * *'   # 16:15 Lima
+    - cron: '0 22 * * *'    # 17:00 Lima
   workflow_dispatch:
     inputs:
       fecha:
@@ -60,8 +69,9 @@ jobs:
         run: |
           ARGS=()
           if [ "$EVENTO" = "schedule" ]; then
-            # Solo el cron de las 8:30 (13:30 UTC) es modo completo.
-            if [ "$CRON" = "30 13 * * *" ]; then MODO=completo; else MODO=novedades; fi
+            # Modo automático: el script decide según la hora de Lima y las franjas ya
+            # atendidas hoy. La de las 8:30 es completa; las de 12:00 y 15:30, novedades.
+            MODO=auto
           else
             MODO="${IN_MODO:-completo}"
             if [ -n "$IN_FECHA" ]; then ARGS+=(--fecha "$IN_FECHA"); fi
@@ -83,7 +93,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/vistas.json data/resumenes.json
+          git add data/vistas.json data/resumenes.json data/franjas.json
           if git diff --staged --quiet; then
             echo "Sin cambios de estado."
             exit 0

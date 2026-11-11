@@ -20,7 +20,8 @@ DIR_SALIDA = Path("salida")
 
 def _argumentos(argv=None) -> argparse.Namespace:
     p = argparse.ArgumentParser(prog="normas", description="Resumen de normas de El Peruano.")
-    p.add_argument("--modo", choices=["completo", "novedades"], default="completo")
+    p.add_argument("--modo", choices=["completo", "novedades", "auto"], default="completo",
+                   help="auto: decide según las franjas horarias del día aún no atendidas")
     p.add_argument("--fecha", help="dd/mm/aaaa; por defecto, hoy en Lima")
     p.add_argument("--dry-run", action="store_true",
                    help="imprime el correo; no envía nada ni toca el estado")
@@ -80,6 +81,27 @@ def ejecutar(args: argparse.Namespace) -> int:
     errores: list[str] = []
     grave = False
 
+    # Modo automático (ejecuciones programadas): atiende las franjas pendientes del día.
+    franjas_atendidas: list[str] | None = None
+    if args.modo == "auto":
+        hechas = estado.cargar_franjas_hechas(hoy_real)
+        pendientes = estado.franjas_pendientes(f"{ahora_lima:%H:%M}", hechas)
+        modo = estado.modo_automatico(pendientes)
+        if modo is None:
+            print(f"Nada pendiente a las {ahora_lima:%H:%M} de Lima (franjas hechas: "
+                  f"{', '.join(hechas) or 'ninguna'}). No se hace ninguna consulta.")
+            return 0
+        print(f"Franjas pendientes: {', '.join(pendientes)} -> modo {modo}.")
+        if len(pendientes) > 1 or f"{ahora_lima:%H:%M}" > max(pendientes)[:2] + ":59":
+            errores.append("GitHub retrasó u omitió la ejecución programada de "
+                           + ", ".join(pendientes) + "; este correo la cubre.")
+        args.modo = modo
+        franjas_atendidas = hechas + pendientes
+
+    def anotar_franjas() -> None:
+        if franjas_atendidas is not None and guardar_estado:
+            estado.guardar_franjas(hoy_real, franjas_atendidas)
+
     # --- 1. Consultas a El Peruano (como máximo 2 al listado) ---
     fuente = Fuente()
     normas_hoy = fuente.normas_por_fecha(hoy) if es_prueba else fuente.normas_de_hoy()
@@ -104,6 +126,7 @@ def ejecutar(args: argparse.Namespace) -> int:
     sin_novedades = args.modo == "novedades" and not informe.hay_contenido()
     if sin_novedades and not reglas.get("novedades", {}).get("enviar_sin_novedades", False):
         print("Sin novedades: no se envía correo.")
+        anotar_franjas()
         if guardar_estado:
             estado.guardar_vistas(
                 estado.actualizar_vistas(vistas, informe.claves_revisadas, hoy, dias))
@@ -150,6 +173,7 @@ def ejecutar(args: argparse.Namespace) -> int:
         print(f"Correo enviado: {asunto}")
 
     # --- 5. Estado (solo después de enviar) ---
+    anotar_franjas()
     if guardar_estado:
         estado.guardar_vistas(estado.actualizar_vistas(vistas, informe.claves_revisadas, hoy, dias))
         estado.guardar_resumenes(cache, hoy, dias)

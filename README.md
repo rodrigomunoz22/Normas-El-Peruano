@@ -13,8 +13,12 @@ Corre en GitHub Actions: no depende de que ninguna computadora esté encendida.
 | 12:00       | `0 17 * * *`  | novedades | Todo lo de hoy                                      | Solo las normas que no están en `data/vistas.json` |
 | 15:30       | `30 20 * * *` | novedades | Todo lo de hoy                                      | Igual; si no hay novedades, no envía correo |
 
-GitHub puede retrasar las ejecuciones programadas (15–30 minutos o más). Por eso el correo
-muestra la hora real de ejecución y el modo novedades se apoya en el estado guardado, no en la hora.
+GitHub puede retrasar las ejecuciones programadas (15–30 minutos o más) e incluso omitirlas: el
+11/11/2026 la de las 8:30 no se disparó. Por eso el workflow tiene además seis horarios de
+respaldo (9:15, 10:00, 12:45, 13:30, 16:15 y 17:00). `data/franjas.json` anota qué franjas del
+día ya se atendieron: un respaldo solo actúa si la franja quedó pendiente, y si no, termina sin
+consultar el sitio ni enviar nada. Siguen siendo como máximo tres correos al día. El correo
+muestra la hora real de ejecución y avisa en el pie cuando cubre una franja atrasada.
 
 Orden del correo: 1) PCM, MEF y decretos legislativos, 2) edición extraordinaria de ayer (solo 8:30), 3) prioridad
 alta, 4) prioridad media (incluye gobiernos regionales), 5) instituciones con más de 5 normas en
