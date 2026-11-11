@@ -83,8 +83,10 @@ Todo está en [`config/reglas.yml`](config/reglas.yml); no hace falta tocar cód
     designaciones. Cámbialo a `true` si prefieres verlas agrupadas en baja.
 - `concentracion.umbral`: una entidad se reporta aparte si emite **más** de este número en un día.
 - `novedades.enviar_sin_novedades`: `true` para recibir correo aunque no haya normas nuevas.
-- `revision_detallada`: qué normas se leen completas (PCM/MEF y los patrones de designaciones
-  y viajes) y el tope de páginas por ejecución.
+- `revision_detallada`: qué normas se leen completas (PCM/MEF y las designaciones y viajes de
+  las listas `ministerios`, `autonomos` y `reguladores`) y el tope de páginas por ejecución.
+  **Revisa esas tres listas**: los nombres deben coincidir con el encabezado que usa El Peruano;
+  cuatro de ellos aún no se han visto en el listado y están marcados en el archivo.
 - `resumenes`: normas por llamada a Claude y límite de caracteres por norma.
 
 Las comparaciones ignoran tildes y mayúsculas. Después de editar, corre `python -m pytest`.
@@ -95,7 +97,8 @@ Las comparaciones ignoran tildes y mayúsculas. Después de editar, corre `pytho
   abrir su página y sin pasar por Claude. El correo lo avisa al inicio.
 - **Revisión detallada** (se abre la página, se lee el texto completo y Claude lo resume):
   todas las normas de PCM y MEF, y las designaciones, renuncias, encargos y autorizaciones de
-  viaje de cualquier entidad. En designaciones el resumen indica a quién se designa, quién
+  viaje de ministerios, organismos constitucionalmente autónomos y organismos reguladores (no
+  las de universidades, gobiernos regionales ni organismos adscritos). En designaciones el resumen indica a quién se designa, quién
   renuncia y el cargo; en viajes, quiénes viajan, destino, fechas y los montos de pasajes y
   viáticos que figuren en el texto. Se configura en `revision_detallada` de `config/reglas.yml`.
 - Claude solo recibe el texto publicado de cada norma y tiene instrucción de no agregar contexto
@@ -139,7 +142,8 @@ Para cargar poco al sitio, el monitor:
 - hace como máximo 2 consultas al listado por ejecución (tope de 3), con timeout de 45 s y hasta
   2 reintentos con espera creciente;
 - abre la página de la norma en `busquedas.elperuano.pe` **solo** para las normas de PCM y MEF
-  y para las designaciones, renuncias, encargos y viajes (una petición por norma, con 1 s de
+  y para las designaciones, renuncias, encargos y viajes de ministerios, organismos
+  constitucionalmente autónomos y reguladores (una petición por norma, con 1 s de
   pausa, tope de 40 por ejecución, sin repetir las ya resumidas). Para no abrir ninguna página,
   pon `revision_detallada.max_textos_por_ejecucion: 0`.
 

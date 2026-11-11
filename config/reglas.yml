@@ -65,7 +65,9 @@ novedades:
 # --- Revisión detallada ---------------------------------------------------
 # Por defecto el correo muestra solo el título y la sumilla del listado, sin
 # abrir la página de cada norma. Solo en estos casos se abre la página, se lee
-# el texto completo y Claude lo resume:
+# el texto completo y Claude lo resume: (a) todas las normas de PCM y MEF, y
+# (b) las designaciones, renuncias, encargos y viajes de ministerios, organismos
+# constitucionalmente autónomos y organismos reguladores.
 revision_detallada:
   entidades_prioritarias: true    # todas las normas de PCM y MEF
   patrones:                       # designaciones, renuncias, encargos y viajes (sobre la sumilla)
@@ -74,6 +76,59 @@ revision_detallada:
     - '\bENCARGA(N|R|TURA)?\b'
     - '\bENCARGO(S)?\b'
     - 'AUTORIZA(N)? (EL )?VIAJE'
+  # Las designaciones y viajes solo se revisan a detalle en estos tres grupos.
+  # En universidades, gobiernos regionales, organismos adscritos y el resto se
+  # muestra únicamente el título y la sumilla.
+  # Los nombres deben ser los que usa El Peruano como encabezado de la norma.
+  designaciones_y_viajes:
+    # 1) Ministerios. El Peruano agrupa bajo el nombre del sector también a sus
+    #    organismos adscritos (p. ej. CENEPRED bajo DEFENSA, IMARPE bajo PRODUCE),
+    #    así que además se exige que el tipo de norma sea del propio ministerio.
+    ministerios:
+      - PRESIDENCIA DEL CONSEJO DE MINISTROS
+      - AMBIENTE
+      - COMERCIO EXTERIOR Y TURISMO
+      - CULTURA
+      - DEFENSA
+      - DESARROLLO AGRARIO Y RIEGO
+      - DESARROLLO E INCLUSIÓN SOCIAL
+      - ECONOMÍA Y FINANZAS
+      - EDUCACIÓN
+      - ENERGÍA Y MINAS
+      - INTERIOR
+      - JUSTICIA Y DERECHOS HUMANOS
+      - MUJER Y POBLACIONES VULNERABLES      # nombre no observado aún en el listado
+      - PRODUCE
+      - RELACIONES EXTERIORES
+      - SALUD
+      - TRABAJO Y PROMOCIÓN DEL EMPLEO
+      - TRANSPORTES Y COMUNICACIONES
+      - VIVIENDA, CONSTRUCCIÓN Y SANEAMIENTO
+    tipos_de_ministerio:
+      - RESOLUCIÓN MINISTERIAL
+      - RESOLUCIÓN SUPREMA
+      - DECRETO SUPREMO
+      - RESOLUCIÓN VICE MINISTERIAL
+      - RESOLUCIÓN VICEMINISTERIAL
+      - RESOLUCIÓN DE SECRETARÍA GENERAL
+    # 2) Organismos constitucionalmente autónomos (cualquier tipo de norma).
+    autonomos:
+      - BANCO CENTRAL DE RESERVA
+      - CONTRALORÍA GENERAL DE LA REPÚBLICA
+      - DEFENSORÍA DEL PUEBLO
+      - JUNTA NACIONAL DE JUSTICIA           # nombre no observado aún en el listado
+      - JURADO NACIONAL DE ELECCIONES
+      - MINISTERIO PÚBLICO
+      - OFICINA NACIONAL DE PROCESOS ELECTORALES
+      - REGISTRO NACIONAL DE IDENTIFICACIÓN Y ESTADO CIVIL
+      - SUPERINTENDENCIA DE BANCA, SEGUROS Y ADMINISTRADORAS PRIVADAS DE FONDOS DE PENSIONES
+      - TRIBUNAL CONSTITUCIONAL
+    # 3) Organismos reguladores (cualquier tipo de norma).
+    reguladores:
+      - ORGANISMO SUPERVISOR DE LA INVERSIÓN EN ENERGÍA Y MINERÍA
+      - ORGANISMO SUPERVISOR DE INVERSIÓN PRIVADA EN TELECOMUNICACIONES
+      - ORGANISMO SUPERVISOR DE LA INVERSIÓN EN INFRAESTRUCTURA DE TRANSPORTE DE USO PÚBLICO   # no observado aún
+      - SUPERINTENDENCIA NACIONAL DE SERVICIOS DE SANEAMIENTO                                  # no observado aún
   max_textos_por_ejecucion: 40    # tope de páginas abiertas por ejecución
   pausa_entre_textos_segundos: 1.0
 

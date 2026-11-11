@@ -18,8 +18,9 @@ from .prioridades import Concentracion, Informe, Item
 SMTP_HOST, SMTP_PUERTO = "smtp.gmail.com", 465
 URL_FUENTE = "https://diariooficial.elperuano.pe/Normas"
 AVISO_ALCANCE = ("Se leyó el texto completo solo de las normas de PCM y MEF y de las "
-                 "designaciones, renuncias, encargos y viajes. En las demás se muestra el "
-                 "título y la sumilla del listado, sin resumen adicional.")
+                 "designaciones, renuncias, encargos y viajes de ministerios, organismos "
+                 "constitucionalmente autónomos y organismos reguladores. En las demás se "
+                 "muestra el título y la sumilla del listado, sin resumen adicional.")
 
 
 @dataclass

@@ -230,8 +230,22 @@ def test_completo_secciones_del_dia_real(dia, reglas):
                for i in detalladas)
     assert {i.norma.clave for i in informe.institucional} <= {i.norma.clave for i in detalladas}
     assert all(not i.detalle for i in informe.alta + informe.media)
-    assert all(i.detalle for i in informe.baja)        # en este día, toda la baja es designación o viaje
-    assert len(detalladas) == 4 + len(informe.baja)
+    # Designaciones y viajes: solo ministerios, autónomos y reguladores.
+    con_detalle = {i.norma.titulo for i in informe.baja if i.detalle}
+    assert con_detalle == {
+        "RESOLUCIÓN MINISTERIAL N° 1009-2026/MINSA",            # ministerio
+        "RESOLUCIÓN MINISTERIAL N° 682-2026-MINEDU",
+        "RESOLUCIÓN MINISTERIAL N° 00400-2026-PRODUCE",
+        "RESOLUCIÓN MINISTERIAL N° 643-2026-MTC/01.02",
+        "RESOLUCIÓN N° 000204-2026-P/JNE",                      # autónomos
+        "RESOLUCIÓN JEFATURAL N° 000160-2026-JN/ONPE",
+        "RESOLUCIÓN SBS N° 02628-2026",
+    }
+    sin_detalle = {i.norma.titulo for i in informe.baja if not i.detalle}
+    assert "RESOLUCIÓN JEFATURAL N° 00105-2026-CENEPRED/J" in sin_detalle   # adscrito a DEFENSA
+    assert "RESOLUCIÓN N° 198-2026-IMARPE/PE" in sin_detalle                # adscrito a PRODUCE
+    assert "RESOLUCIÓN N° 0715-CU-2026" in sin_detalle                      # universidad
+    assert "RESOLUCIÓN N° 0020-2026-APN-PE" in sin_detalle                  # organismo adscrito
 
 
 def test_completo_incluye_extraordinaria_de_ayer(dia, extra, reglas):
@@ -533,11 +547,17 @@ def test_novedades_no_mira_ayer(regionales, reglas):
 
 
 def test_designaciones_de_entidad_concentrada_conservan_linea_propia(reglas):
-    normas = [norma(entidad="ORGANISMO X", titulo=f"RESOLUCIÓN N° {i}-2026",
-                    sumilla="Designan Gerente General", clave=f"d{i}") for i in range(7)]
-    informe = armar_informe("completo", normas, [], set(), reglas)
+    def lote(entidad):
+        return [norma(entidad=entidad, titulo=f"RESOLUCIÓN N° {i}-2026",
+                      sumilla="Designan Gerente General", clave=f"d{i}") for i in range(7)]
+    informe = armar_informe("completo", lote("CONTRALORÍA GENERAL DE LA REPÚBLICA"), [], set(),
+                            reglas)
     assert len(informe.concentradas) == 1 and len(informe.baja) == 7
     assert all(i.detalle for i in informe.baja)
+    # Un organismo fuera de los tres grupos: sin detalle, lo reemplaza la entrada agrupada.
+    otro = armar_informe("completo", lote("INSTITUCIONES EDUCATIVAS"), [], set(), reglas)
+    assert len(otro.concentradas) == 1 and otro.baja == []
+    assert otro.items_con_resumen() == []
 
 
 def test_normas_sin_detalle_muestran_la_sumilla_sin_llamar_a_claude(dia, reglas):

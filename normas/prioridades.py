@@ -75,7 +75,19 @@ def requiere_detalle(norma: Norma, reglas: dict) -> bool:
     cfg = reglas.get("revision_detallada", {})
     if cfg.get("entidades_prioritarias", True) and es_prioritaria(norma, reglas):
         return True
-    return es_designacion_o_viaje(norma, reglas)
+    if not es_designacion_o_viaje(norma, reglas):
+        return False
+    grupos = cfg.get("designaciones_y_viajes")
+    if not grupos:
+        return True                        # sin lista de entidades: todas las designaciones
+    entidad = normalizar(norma.entidad)
+    def en(lista: str) -> bool:
+        return entidad in {normalizar(e) for e in grupos.get(lista) or []}
+    if en("autonomos") or en("reguladores"):
+        return True
+    # En los ministerios solo cuentan las normas del propio ministerio, no las de
+    # los organismos adscritos que El Peruano agrupa bajo el nombre del sector.
+    return en("ministerios") and _coincide_tipo(norma.tipo, grupos.get("tipos_de_ministerio"))
 
 
 @dataclass
