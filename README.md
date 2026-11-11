@@ -1,6 +1,6 @@
 # Monitor de normas legales de El Peruano
 
-Tres veces al día (8:30, 12:00 y 15:30, hora de Lima) lee las normas legales publicadas en el
+Tres veces al día (8:37, 12:09 y 15:42, hora de Lima) lee las normas legales publicadas en el
 [Diario Oficial El Peruano](https://diariooficial.elperuano.pe/Normas), las clasifica por
 prioridad, resume las relevantes con la API de Claude y envía un correo en español.
 Corre en GitHub Actions: no depende de que ninguna computadora esté encendida.
@@ -9,18 +9,19 @@ Corre en GitHub Actions: no depende de que ninguna computadora esté encendida.
 
 | Hora (Lima) | Cron (UTC)    | Modo      | Qué consulta                                        | Qué envía |
 |-------------|---------------|-----------|-----------------------------------------------------|-----------|
-| 8:30        | `30 13 * * *` | completo  | Todo lo de ayer + todo lo de hoy                    | Todo lo de hoy, la extraordinaria de ayer y las normas ordinarias de ayer que no salieron en un correo anterior (etiqueta "Publicada ayer") |
-| 12:00       | `0 17 * * *`  | novedades | Todo lo de hoy                                      | Solo las normas que no están en `data/vistas.json` |
-| 15:30       | `30 20 * * *` | novedades | Todo lo de hoy                                      | Igual; si no hay novedades, no envía correo |
+| 8:37        | `37 13 * * *` | completo  | Todo lo de ayer + todo lo de hoy                    | Todo lo de hoy, la extraordinaria de ayer y las normas ordinarias de ayer que no salieron en un correo anterior (etiqueta "Publicada ayer") |
+| 12:09       | `9 17 * * *`  | novedades | Todo lo de hoy                                      | Solo las normas que no están en `data/vistas.json` |
+| 15:42       | `42 20 * * *` | novedades | Todo lo de hoy                                      | Igual; si no hay novedades, no envía correo |
 
 GitHub puede retrasar las ejecuciones programadas (15–30 minutos o más) e incluso omitirlas: el
-11/11/2026 la de las 8:30 no se disparó. Por eso el workflow tiene además seis horarios de
-respaldo (9:15, 10:00, 12:45, 13:30, 16:15 y 17:00). `data/franjas.json` anota qué franjas del
+11/11/2026 la de las 8:30 (horario original) no se disparó. Los horarios usan minutos poco
+comunes porque en las horas en punto y a las y media GitHub tiene más carga. Por eso el workflow tiene además seis horarios de
+respaldo (9:23, 10:11, 12:53, 13:41, 16:27 y 17:13). `data/franjas.json` anota qué franjas del
 día ya se atendieron: un respaldo solo actúa si la franja quedó pendiente, y si no, termina sin
 consultar el sitio ni enviar nada. Siguen siendo como máximo tres correos al día. El correo
 muestra la hora real de ejecución y avisa en el pie cuando cubre una franja atrasada.
 
-Orden del correo: 1) PCM, MEF y decretos legislativos, 2) edición extraordinaria de ayer (solo 8:30), 3) prioridad
+Orden del correo: 1) PCM, MEF y decretos legislativos, 2) edición extraordinaria de ayer (solo 8:37), 3) prioridad
 alta, 4) prioridad media (incluye gobiernos regionales), 5) instituciones con más de 5 normas en
 un día, 6) prioridad baja agrupada. El pie indica cuántas normas municipales se omitieron,
 cuántas normas se revisaron, la hora real (Lima y UTC) y los errores no fatales.

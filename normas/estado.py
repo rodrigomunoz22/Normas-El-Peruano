@@ -67,14 +67,14 @@ def guardar_resumenes(resumenes: dict[str, dict], hoy: date, dias: int = 10,
     _escribir(ruta, {"resumenes": _podar(resumenes, hoy, dias, campo="fecha")})
 
 
-# --- Franjas horarias (8:30, 12:00 y 15:30) --------------------------------
+# --- Franjas horarias (8:37, 12:09 y 15:42) --------------------------------
 # GitHub puede retrasar u omitir una ejecución programada. Por eso el workflow
 # también corre en horarios de respaldo y aquí se anota qué franjas del día ya
 # se atendieron: un respaldo solo actúa si la franja quedó pendiente.
 
 RUTA_FRANJAS = RAIZ / "data" / "franjas.json"
-FRANJAS = ["08:30", "12:00", "15:30"]
-FRANJA_COMPLETA = "08:30"
+FRANJAS = ["08:37", "12:09", "15:42"]   # hora de Lima; deben coincidir con resumen.yml
+FRANJA_COMPLETA = "08:37"
 
 
 def cargar_franjas_hechas(hoy: date, ruta: Path = RUTA_FRANJAS) -> list[str]:
@@ -89,7 +89,7 @@ def franjas_pendientes(hora_lima: str, hechas: list[str]) -> list[str]:
 
 
 def modo_automatico(pendientes: list[str]) -> str | None:
-    """'completo' si falta la franja de las 8:30, 'novedades' si falta otra, None si nada."""
+    """'completo' si falta la primera franja, 'novedades' si falta otra, None si nada."""
     if not pendientes:
         return None
     return "completo" if FRANJA_COMPLETA in pendientes else "novedades"

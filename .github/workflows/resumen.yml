@@ -2,18 +2,20 @@ name: Resumen de normas de El Peruano
 
 on:
   schedule:
-    - cron: '30 13 * * *'   # 8:30 Lima, modo completo
-    - cron: '0 17 * * *'    # 12:00 Lima, modo novedades
-    - cron: '30 20 * * *'   # 15:30 Lima, modo novedades
+    # Minutos poco comunes a propósito: en las horas en punto y a las y media
+    # GitHub Actions tiene más carga y retrasa u omite más ejecuciones.
+    - cron: '37 13 * * *'   # 8:37 Lima, modo completo
+    - cron: '9 17 * * *'    # 12:09 Lima, modo novedades
+    - cron: '42 20 * * *'   # 15:42 Lima, modo novedades
     # Respaldos: GitHub a veces retrasa u omite una ejecución programada. Estas
     # solo actúan si la franja anterior quedó sin atender (data/franjas.json);
     # si ya se atendió, terminan sin consultar el sitio ni enviar nada.
-    - cron: '15 14 * * *'   # 9:15 Lima
-    - cron: '0 15 * * *'    # 10:00 Lima
-    - cron: '45 17 * * *'   # 12:45 Lima
-    - cron: '30 18 * * *'   # 13:30 Lima
-    - cron: '15 21 * * *'   # 16:15 Lima
-    - cron: '0 22 * * *'    # 17:00 Lima
+    - cron: '23 14 * * *'   # 9:23 Lima
+    - cron: '11 15 * * *'   # 10:11 Lima
+    - cron: '53 17 * * *'   # 12:53 Lima
+    - cron: '41 18 * * *'   # 13:41 Lima
+    - cron: '27 21 * * *'   # 16:27 Lima
+    - cron: '13 22 * * *'   # 17:13 Lima
   workflow_dispatch:
     inputs:
       fecha:
@@ -70,7 +72,7 @@ jobs:
           ARGS=()
           if [ "$EVENTO" = "schedule" ]; then
             # Modo automático: el script decide según la hora de Lima y las franjas ya
-            # atendidas hoy. La de las 8:30 es completa; las de 12:00 y 15:30, novedades.
+            # atendidas hoy. La de las 8:37 es completa; las de 12:09 y 15:42, novedades.
             MODO=auto
           else
             MODO="${IN_MODO:-completo}"

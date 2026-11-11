@@ -63,7 +63,7 @@ prioridad_por_defecto: media      # media o baja
 concentracion:
   umbral: 5                       # se reporta si una entidad emite MÁS de este número en un día
 
-# --- Modo novedades (12:00 y 15:30) ---------------------------------------
+# --- Modo novedades (12:09 y 15:42) ---------------------------------------
 novedades:
   enviar_sin_novedades: false     # true = manda correo aunque no haya normas nuevas
 

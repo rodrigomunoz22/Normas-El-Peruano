@@ -224,7 +224,7 @@ def armar_informe(modo: str, normas_hoy: list[Norma], normas_ayer: list[Norma],
 
     modo 'completo'  -> se envía todo lo de hoy, la edición extraordinaria de ayer y las
                         normas ordinarias de ayer que no salieron en ningún correo
-                        (por ejemplo, las publicadas después de las 15:30).
+                        (por ejemplo, las publicadas después de la última ejecución).
     modo 'novedades' -> solo las normas de hoy cuya clave no esté en claves_vistas.
     """
     if modo not in ("completo", "novedades"):

@@ -619,14 +619,14 @@ def test_decreto_legislativo_va_a_la_primera_seccion_con_detalle(reglas):
 # --- Franjas horarias y respaldos -------------------------------------------------
 
 @pytest.mark.parametrize("hora,hechas,pendientes,modo", [
-    ("08:29", [], [], None),
-    ("08:30", [], ["08:30"], "completo"),
-    ("09:15", ["08:30"], [], None),                       # respaldo: ya se atendió, no hace nada
-    ("09:15", [], ["08:30"], "completo"),                 # respaldo: cubre la franja omitida
-    ("12:05", ["08:30"], ["12:00"], "novedades"),
-    ("12:05", [], ["08:30", "12:00"], "completo"),        # se perdió la de 8:30: correo completo
-    ("17:00", ["08:30", "12:00"], ["15:30"], "novedades"),
-    ("17:00", ["08:30", "12:00", "15:30"], [], None),
+    ("08:36", [], [], None),
+    ("08:37", [], ["08:37"], "completo"),
+    ("09:23", ["08:37"], [], None),                       # respaldo: ya se atendió, no hace nada
+    ("09:23", [], ["08:37"], "completo"),                 # respaldo: cubre la franja omitida
+    ("12:10", ["08:37"], ["12:09"], "novedades"),
+    ("12:10", [], ["08:37", "12:09"], "completo"),        # se perdió la de 8:37: correo completo
+    ("17:13", ["08:37", "12:09"], ["15:42"], "novedades"),
+    ("17:13", ["08:37", "12:09", "15:42"], [], None),
 ])
 def test_franjas_pendientes_y_modo(hora, hechas, pendientes, modo):
     assert estado.franjas_pendientes(hora, hechas) == pendientes
@@ -635,7 +635,7 @@ def test_franjas_pendientes_y_modo(hora, hechas, pendientes, modo):
 
 def test_franjas_se_reinician_cada_dia(tmp_path):
     ruta = tmp_path / "franjas.json"
-    estado.guardar_franjas(date(2026, 11, 11), ["12:00", "08:30", "08:30"], ruta)
-    assert estado.cargar_franjas_hechas(date(2026, 11, 11), ruta) == ["08:30", "12:00"]
+    estado.guardar_franjas(date(2026, 11, 11), ["12:09", "08:37", "08:37"], ruta)
+    assert estado.cargar_franjas_hechas(date(2026, 11, 11), ruta) == ["08:37", "12:09"]
     assert estado.cargar_franjas_hechas(date(2026, 11, 12), ruta) == []
     assert estado.cargar_franjas_hechas(date(2026, 11, 11), tmp_path / "no-existe.json") == []
