@@ -10,7 +10,7 @@ on:
     # Respaldos: GitHub a veces retrasa u omite una ejecución programada. Estas
     # solo actúan si la franja anterior quedó sin atender (data/franjas.json);
     # si ya se atendió, terminan sin consultar el sitio ni enviar nada.
-    - cron: '24 14 * * *'   # 9:24 Lima
+    - cron: '23 14 * * *'   # 9:23 Lima
     - cron: '11 15 * * *'   # 10:11 Lima
     - cron: '53 17 * * *'   # 12:53 Lima
     - cron: '41 18 * * *'   # 13:41 Lima
