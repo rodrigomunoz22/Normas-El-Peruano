@@ -64,12 +64,26 @@ def prioridad(norma: Norma, reglas: dict) -> str:
     return reglas.get("prioridad_por_defecto", MEDIA)
 
 
+def es_designacion_o_viaje(norma: Norma, reglas: dict) -> bool:
+    """True si la sumilla habla de designaciones, renuncias, encargos o viajes."""
+    patrones = reglas.get("revision_detallada", {}).get("patrones") or []
+    return _coincide_patron(normalizar(norma.sumilla), patrones)
+
+
+def requiere_detalle(norma: Norma, reglas: dict) -> bool:
+    """True si hay que abrir la página de la norma y resumir su texto completo."""
+    cfg = reglas.get("revision_detallada", {})
+    if cfg.get("entidades_prioritarias", True) and es_prioritaria(norma, reglas):
+        return True
+    return es_designacion_o_viaje(norma, reglas)
+
+
 @dataclass
 class Item:
     """Una norma dentro de una sección del correo."""
     norma: Norma
     prioridad: str
-    una_linea: bool = False        # no se resume con Claude: se muestra la sumilla del listado
+    detalle: bool = False          # se abre la página de la norma y Claude la resume
     ya_informada: bool = False     # ya había salido en un correo anterior
     de_ayer: bool = False          # norma ordinaria de ayer que no alcanzó a salir en un correo
     resumen: str = ""
@@ -102,9 +116,10 @@ class Informe:
     claves_revisadas: list[str] = field(default_factory=list)
 
     def items_con_resumen(self) -> list[Item]:
-        """Ítems que deben resumirse con Claude (institucional, extraordinaria, alta y media)."""
-        todos = self.institucional + self.extraordinaria_ayer + self.alta + self.media
-        return [i for i in todos if not i.una_linea]
+        """Ítems de revisión detallada: se lee su texto completo y Claude los resume."""
+        todos = (self.institucional + self.extraordinaria_ayer + self.alta + self.media
+                 + self.baja)
+        return [i for i in todos if i.detalle]
 
     def total_a_enviar(self) -> int:
         en_grupos = sum(len(ns) for c in self.concentradas if not c.prioritaria
@@ -185,7 +200,7 @@ def armar_informe(modo: str, normas_hoy: list[Norma], normas_ayer: list[Norma],
         if n.clave not in {m.clave for m in sin_muni}:
             continue
         p = prioridad(n, reglas)
-        item = Item(norma=n, prioridad=p, una_linea=(p == BAJA),
+        item = Item(norma=n, prioridad=p, detalle=requiere_detalle(n, reglas),
                     ya_informada=(modo == "completo" and n.clave in claves_vistas),
                     de_ayer=n.clave in claves_ordinarias_ayer)
         if es_prioritaria(n, reglas):
@@ -196,7 +211,7 @@ def armar_informe(modo: str, normas_hoy: list[Norma], normas_ayer: list[Norma],
             informe.alta.append(item)
         elif p == MEDIA:
             informe.media.append(item)
-        elif (normalizar(n.entidad), n.fecha) in concentrados:
+        elif (normalizar(n.entidad), n.fecha) in concentrados and not item.detalle:
             continue                       # la entrada agrupada reemplaza a la línea individual
         else:
             informe.baja.append(item)

@@ -26,7 +26,7 @@ alta:
     - 'ESTADO DE EMERGENCIA'
     - 'DECLARA\w* .*EMERGENCIA'
 
-# --- 5. Prioridad baja (se agrupa, sin resumen de Claude) -----------------
+# --- 5. Prioridad baja (se agrupa por entidad) ----------------------------
 baja:
   patrones:                       # expresiones regulares sobre la sumilla
     - '\bDESIGNA(N|R|CION|CIONES)?\b'
@@ -62,15 +62,25 @@ concentracion:
 novedades:
   enviar_sin_novedades: false     # true = manda correo aunque no haya normas nuevas
 
-# --- Resúmenes ------------------------------------------------------------
+# --- Revisión detallada ---------------------------------------------------
+# Por defecto el correo muestra solo el título y la sumilla del listado, sin
+# abrir la página de cada norma. Solo en estos casos se abre la página, se lee
+# el texto completo y Claude lo resume:
+revision_detallada:
+  entidades_prioritarias: true    # todas las normas de PCM y MEF
+  patrones:                       # designaciones, renuncias, encargos y viajes (sobre la sumilla)
+    - '\bDESIGNA(N|R|CION|CIONES)?\b'
+    - '\bRENUNCIA(S)?\b'
+    - '\bENCARGA(N|R|TURA)?\b'
+    - '\bENCARGO(S)?\b'
+    - 'AUTORIZA(N)? (EL )?VIAJE'
+  max_textos_por_ejecucion: 40    # tope de páginas abiertas por ejecución
+  pausa_entre_textos_segundos: 1.0
+
+# --- Resúmenes con Claude -------------------------------------------------
 resumenes:
   normas_por_llamada: 6           # normas agrupadas en cada llamada a Claude
   max_caracteres_por_norma: 20000 # si el texto es más largo se corta y se avisa en el resumen
-  # Texto completo desde busquedas.elperuano.pe (una petición por norma a resumir).
-  # Pon max_textos_por_ejecucion en 0 para no pedir textos: los resúmenes saldrán
-  # solo del título y la sumilla del listado, y así se indicará en el correo.
-  max_textos_por_ejecucion: 40
-  pausa_entre_textos_segundos: 1.0
 
 # --- Estado ---------------------------------------------------------------
 estado:

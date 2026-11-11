@@ -21,7 +21,8 @@ from normas import correo, estado, resumen
 from normas.filtros import cargar_reglas, es_municipal_excluida, separar_municipales
 from normas.parser import (ErrorDeEstructura, Norma, extraer_tipo, normalizar,
                            parsear_listado)
-from normas.prioridades import ALTA, BAJA, MEDIA, armar_informe, es_prioritaria, prioridad
+from normas.prioridades import (ALTA, BAJA, MEDIA, armar_informe, es_designacion_o_viaje,
+                                es_prioritaria, prioridad)
 
 FIXTURES = Path(__file__).parent / "fixtures"
 
@@ -215,17 +216,22 @@ def test_completo_secciones_del_dia_real(dia, reglas):
     # 1) PCM y MEF siempre en la primera sección, sea cual sea el tipo.
     assert len(informe.institucional) == 4
     viaje_mef = next(i for i in informe.institucional if "510-2026-EF" in i.norma.titulo)
-    assert viaje_mef.una_linea and viaje_mef.prioridad == BAJA
+    assert viaje_mef.detalle and viaje_mef.prioridad == BAJA
     ds_mef = next(i for i in informe.institucional if "248-2026-EF" in i.norma.titulo)
-    assert not ds_mef.una_linea
+    assert ds_mef.detalle
     # 3) Alta: la Resolución Legislativa del Congreso.
     assert [i.norma.entidad for i in informe.alta] == ["CONGRESO DE LA REPÚBLICA"]
     # Cada norma aparece una sola vez.
     claves = _todas_las_claves(informe)
     assert len(claves) == len(set(claves))
-    # Las de prioridad baja no se resumen con Claude.
-    assert all(i.prioridad != BAJA for i in informe.items_con_resumen())
-    assert all(i.una_linea for i in informe.baja)
+    # Revisión detallada: solo PCM/MEF y designaciones, renuncias, encargos y viajes.
+    detalladas = informe.items_con_resumen()
+    assert all(es_prioritaria(i.norma, reglas) or es_designacion_o_viaje(i.norma, reglas)
+               for i in detalladas)
+    assert {i.norma.clave for i in informe.institucional} <= {i.norma.clave for i in detalladas}
+    assert all(not i.detalle for i in informe.alta + informe.media)
+    assert all(i.detalle for i in informe.baja)        # en este día, toda la baja es designación o viaje
+    assert len(detalladas) == 4 + len(informe.baja)
 
 
 def test_completo_incluye_extraordinaria_de_ayer(dia, extra, reglas):
@@ -279,13 +285,17 @@ def test_concentracion_jne_reemplaza_lineas_de_baja(dia, reglas):
         "JURADO NACIONAL DE ELECCIONES", "10/11/2026", 16, 16)
     assert dict(c.conteo_por_tipo) == {"RESOLUCION": 16}
     assert sum(len(v) for v in c.por_tipo.values()) == 16
-    assert all(i.norma.entidad != "JURADO NACIONAL DE ELECCIONES" for i in informe.baja)
+    # La entrada agrupada reemplaza las líneas del JNE, salvo su autorización de viaje,
+    # que conserva línea propia porque lleva revisión detallada.
+    jne_baja = [i for i in informe.baja if i.norma.entidad == "JURADO NACIONAL DE ELECCIONES"]
+    assert [i.norma.titulo for i in jne_baja] == ["RESOLUCIÓN N° 000204-2026-P/JNE"]
+    assert jne_baja[0].detalle
 
 
 def test_concentracion_umbral_es_estrictamente_mayor(reglas):
     def lote(k):
-        return [norma(entidad="ORGANISMO X", titulo=f"RESOLUCIÓN N° {i}-2026",
-                      sumilla="Designan funcionario", clave=f"o{i}") for i in range(k)]
+        return [norma(entidad="JURADO NACIONAL DE ELECCIONES", titulo=f"RESOLUCIÓN N° {i}-2026",
+                      sumilla="Confirman resolución", clave=f"o{i}") for i in range(k)]
     cinco = armar_informe("completo", lote(5), [], set(), reglas)
     assert cinco.concentradas == [] and len(cinco.baja) == 5
     seis = armar_informe("completo", lote(6), [], set(), reglas)
@@ -520,3 +530,19 @@ def test_completo_recoge_ordinarias_de_ayer_no_vistas(regionales, reglas):
 def test_novedades_no_mira_ayer(regionales, reglas):
     informe = armar_informe("novedades", [], regionales, set(), reglas)
     assert not informe.hay_contenido() and informe.revisadas == 0
+
+
+def test_designaciones_de_entidad_concentrada_conservan_linea_propia(reglas):
+    normas = [norma(entidad="ORGANISMO X", titulo=f"RESOLUCIÓN N° {i}-2026",
+                    sumilla="Designan Gerente General", clave=f"d{i}") for i in range(7)]
+    informe = armar_informe("completo", normas, [], set(), reglas)
+    assert len(informe.concentradas) == 1 and len(informe.baja) == 7
+    assert all(i.detalle for i in informe.baja)
+
+
+def test_normas_sin_detalle_muestran_la_sumilla_sin_llamar_a_claude(dia, reglas):
+    informe = armar_informe("completo", dia, [], set(), reglas)
+    texto = correo.texto_plano(informe, _ctx())
+    ds = next(i for i in informe.media if "009-2026-IN" in i.norma.titulo)
+    assert not ds.detalle and ds.norma.sumilla in texto
+    assert correo.AVISO_ALCANCE in texto

@@ -17,6 +17,9 @@ from .prioridades import Concentracion, Informe, Item
 
 SMTP_HOST, SMTP_PUERTO = "smtp.gmail.com", 465
 URL_FUENTE = "https://diariooficial.elperuano.pe/Normas"
+AVISO_ALCANCE = ("Se leyó el texto completo solo de las normas de PCM y MEF y de las "
+                 "designaciones, renuncias, encargos y viajes. En las demás se muestra el "
+                 "título y la sumilla del listado, sin resumen adicional.")
 
 
 @dataclass
@@ -54,8 +57,8 @@ def _etiquetas(item: Item, seccion_extra: bool) -> list[str]:
 
 
 def _cuerpo_item(item: Item) -> tuple[str, str]:
-    """(resumen, nota). Los ítems de una línea muestran la sumilla del listado."""
-    if item.una_linea:
+    """(resumen, nota). Sin revisión detallada se muestra la sumilla del listado."""
+    if not item.detalle:
         return item.norma.sumilla, ""
     return item.resumen or item.norma.sumilla, item.nota_resumen
 
@@ -102,6 +105,8 @@ def texto_plano(informe: Informe, ctx: Contexto) -> str:
     s: list[str] = [asunto(ctx), ""]
     if not informe.hay_contenido():
         s += ["No hay normas para informar en esta ejecución.", ""]
+    else:
+        s += [AVISO_ALCANCE, ""]
     for titulo, items in _secciones(informe):
         if not items:
             continue
@@ -133,12 +138,14 @@ def texto_plano(informe: Informe, ctx: Contexto) -> str:
         t = "6. Prioridad baja"
         s += [t.upper(), "-" * len(t)]
         for entidad, items in _baja_por_entidad(informe.baja).items():
-            partes = [f"{i.norma.titulo}"
-                      + (" [Edición extraordinaria]" if i.norma.extraordinaria else "")
-                      + (" [Publicada ayer]" if i.de_ayer else "")
-                      + f" ({i.norma.sumilla}) " + (i.norma.url or "sin enlace")
-                      for i in items]
-            s.append(f"* {entidad} ({len(items)}): " + " · ".join(partes))
+            s.append(f"* {entidad} ({len(items)}):")
+            for i in items:
+                resumen, nota = _cuerpo_item(i)
+                s.append(f"  - {i.norma.titulo}"
+                         + (" [Edición extraordinaria]" if i.norma.extraordinaria else "")
+                         + (" [Publicada ayer]" if i.de_ayer else "")
+                         + f": {resumen}" + (f" ({nota})" if nota else "")
+                         + " | " + (i.norma.url or "sin enlace en la fuente"))
         s.append("")
     s += ["--"] + _pie(informe, ctx)
     return "\n".join(s) + "\n"
@@ -166,6 +173,8 @@ def html(informe: Informe, ctx: Contexto) -> str:
     ]
     if not informe.hay_contenido():
         p.append("<p>No hay normas para informar en esta ejecución.</p>")
+    else:
+        p.append(f'<p style="color:#555;font-size:12px;margin:0 0 6px">{escape(AVISO_ALCANCE)}</p>')
     for titulo, items in _secciones(informe):
         if not items:
             continue
@@ -199,14 +208,18 @@ def html(informe: Informe, ctx: Contexto) -> str:
     if informe.baja:
         p.append(f"{h2}6. Prioridad baja ({len(informe.baja)})</h2>")
         for entidad, items in _baja_por_entidad(informe.baja).items():
-            partes = [
-                _a(i.norma.url, i.norma.titulo)
-                + (_chip("Edición extraordinaria") if i.norma.extraordinaria else "")
-                + (_chip("Publicada ayer", "#666") if i.de_ayer else "")
-                + f' <span style="color:#555">({escape(i.norma.sumilla)})</span>'
-                for i in items]
-            p.append(f'<div style="margin:0 0 6px;font-size:13px"><b>{escape(entidad)}</b> '
-                     f'({len(items)}): ' + " · ".join(partes) + "</div>")
+            p.append(f'<div style="margin:0 0 8px;font-size:13px"><b>{escape(entidad)}</b> '
+                     f'({len(items)})<ul style="margin:2px 0 0;padding-left:18px">')
+            for i in items:
+                resumen, nota = _cuerpo_item(i)
+                p.append(
+                    "<li>" + _a(i.norma.url, i.norma.titulo)
+                    + (_chip("Edición extraordinaria") if i.norma.extraordinaria else "")
+                    + (_chip("Publicada ayer", "#666") if i.de_ayer else "")
+                    + f": {escape(resumen)}"
+                    + (f' <span style="color:#8a5a00;font-size:12px">({escape(nota)})</span>'
+                       if nota else "") + "</li>")
+            p.append("</ul></div>")
     p.append('<hr style="border:0;border-top:1px solid #ccc;margin:20px 0 8px">'
              '<div style="font-size:12px;color:#555">'
              + "<br>".join(escape(l) for l in _pie(informe, ctx)) + "</div></div>")

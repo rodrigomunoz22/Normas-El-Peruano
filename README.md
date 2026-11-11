@@ -83,18 +83,26 @@ Todo está en [`config/reglas.yml`](config/reglas.yml); no hace falta tocar cód
     designaciones. Cámbialo a `true` si prefieres verlas agrupadas en baja.
 - `concentracion.umbral`: una entidad se reporta aparte si emite **más** de este número en un día.
 - `novedades.enviar_sin_novedades`: `true` para recibir correo aunque no haya normas nuevas.
-- `resumenes`: normas por llamada a Claude, límite de caracteres y de textos por ejecución.
+- `revision_detallada`: qué normas se leen completas (PCM/MEF y los patrones de designaciones
+  y viajes) y el tope de páginas por ejecución.
+- `resumenes`: normas por llamada a Claude y límite de caracteres por norma.
 
 Las comparaciones ignoran tildes y mayúsculas. Después de editar, corre `python -m pytest`.
 
 ## Resúmenes y regla de no inventar
 
+- La mayoría de normas se muestra solo con su título y la sumilla del listado, tal cual, sin
+  abrir su página y sin pasar por Claude. El correo lo avisa al inicio.
+- **Revisión detallada** (se abre la página, se lee el texto completo y Claude lo resume):
+  todas las normas de PCM y MEF, y las designaciones, renuncias, encargos y autorizaciones de
+  viaje de cualquier entidad. En designaciones el resumen indica a quién se designa, quién
+  renuncia y el cargo; en viajes, quiénes viajan, destino, fechas y los montos de pasajes y
+  viáticos que figuren en el texto. Se configura en `revision_detallada` de `config/reglas.yml`.
 - Claude solo recibe el texto publicado de cada norma y tiene instrucción de no agregar contexto
-  ni cifras que no estén en ese texto, y de declarar cuando el texto es insuficiente.
-- Solo se resumen las normas de la sección PCM/MEF, la extraordinaria de ayer, alta y media. Las
-  de prioridad baja (y las designaciones de PCM/MEF) muestran la sumilla del listado en una línea.
-- Si no se pudo obtener el texto completo, no se llama a Claude: se muestra la sumilla del
-  listado con la nota "Resumen basado solo en el título y la sumilla del listado".
+  ni cifras que no estén en ese texto, y de declarar cuando el texto es insuficiente o no trae
+  un monto.
+- Si no se pudo leer el texto de una norma de revisión detallada, no se llama a Claude: se
+  muestra la sumilla con la nota "Resumen basado solo en el título y la sumilla del listado".
 - Si el texto supera `max_caracteres_por_norma` se corta y el correo lo indica.
 - Los resúmenes hechos se guardan en `data/resumenes.json` para no repetir llamadas.
 - Un resumen automático puede contener errores: cada norma lleva su enlace a la fuente.
@@ -130,10 +138,10 @@ Para cargar poco al sitio, el monitor:
 - se identifica con un User-Agent propio (`monitor-normas-elperuano/1.0 ...`);
 - hace como máximo 2 consultas al listado por ejecución (tope de 3), con timeout de 45 s y hasta
   2 reintentos con espera creciente;
-- pide además el texto completo de cada norma **a resumir** en `busquedas.elperuano.pe`
-  (una petición por norma, con 1 s de pausa, tope de 40 por ejecución, sin repetir las ya
-  resumidas). Si quieres limitarte estrictamente a 3 peticiones por ejecución, pon
-  `resumenes.max_textos_por_ejecucion: 0`: los resúmenes saldrán solo de la sumilla del listado.
+- abre la página de la norma en `busquedas.elperuano.pe` **solo** para las normas de PCM y MEF
+  y para las designaciones, renuncias, encargos y viajes (una petición por norma, con 1 s de
+  pausa, tope de 40 por ejecución, sin repetir las ya resumidas). Para no abrir ninguna página,
+  pon `revision_detallada.max_textos_por_ejecucion: 0`.
 
 ## Estructura
 

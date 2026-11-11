@@ -18,7 +18,8 @@ from .prioridades import Item
 # (consultada el 11/11/2026). Se cambia con la variable de entorno CLAUDE_MODEL.
 MODELO_POR_DEFECTO = "claude-opus-5-5"
 
-NOTA_SOLO_TITULO = "Resumen basado solo en el título y la sumilla del listado."
+NOTA_SOLO_TITULO = ("Resumen basado solo en el título y la sumilla del listado "
+                    "(no se pudo leer el texto de la norma).")
 NOTA_TEXTO_PARCIAL = "Resumen basado en un texto parcial (la norma excede el límite configurado)."
 NOTA_INSUFICIENTE = "El texto disponible no alcanza para un resumen completo."
 NOTA_SIN_CLAUDE = "Sin resumen de Claude: se muestra la sumilla del listado."
@@ -29,11 +30,21 @@ Eres un asistente que resume normas legales peruanas publicadas en el Diario Ofi
 Recibirás un JSON con varias normas. Cada una trae "clave", "entidad", "titulo", "sumilla" y \
 "texto" (el texto publicado; puede estar cortado si "texto_cortado" es true).
 
-Para cada norma escribe un resumen en español de 2 o 3 líneas (como máximo 60 palabras) que \
+Para cada norma escribe un resumen en español de 2 o 3 líneas (como máximo 80 palabras) que \
 diga qué dispone la norma y a quién o a qué se aplica.
 
+Según el contenido de la norma, el resumen debe incluir además:
+- Designaciones, renuncias, encargos y ceses: el nombre completo de cada persona, el cargo y \
+la entidad; quién renuncia o deja el cargo y quién lo asume; y la fecha desde la que rige, si \
+el texto la indica.
+- Autorizaciones de viaje: quiénes viajan (nombre y cargo), el destino, las fechas, el motivo \
+y los montos de pasajes y de viáticos tal como aparecen en el texto, con su moneda, y quién \
+cubre los gastos. Si el texto no indica algún monto, o dice que el viaje no irroga gastos al \
+Estado, dilo expresamente; no calcules totales que el texto no traiga.
+
 Reglas obligatorias:
-- Usa únicamente la información del texto entregado para esa norma.
+- Usa únicamente la información del texto entregado para esa norma. Copia nombres y montos \
+exactamente como están escritos.
 - No agregues contexto, antecedentes, interpretaciones, cifras, fechas, nombres ni montos que \
 no estén en ese texto.
 - Si el texto no permite saber qué dispone la norma, o está cortado antes de la parte \

@@ -34,7 +34,7 @@ def _argumentos(argv=None) -> argparse.Namespace:
 def obtener_textos(informe: Informe, fuente: Fuente, cache: dict, reglas: dict,
                    errores: list[str]) -> tuple[dict[str, str], bool]:
     """Pide el texto completo de las normas a resumir. Devuelve (textos, fallo_total)."""
-    cfg = reglas.get("resumenes", {})
+    cfg = reglas.get("revision_detallada", {})
     maximo = int(cfg.get("max_textos_por_ejecucion", 40))
     pausa = float(cfg.get("pausa_entre_textos_segundos", 1.0))
     pendientes = [i.norma for i in informe.items_con_resumen()
