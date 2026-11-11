@@ -46,6 +46,8 @@ def _etiquetas(item: Item, seccion_extra: bool) -> list[str]:
     etiquetas = []
     if item.norma.extraordinaria and not seccion_extra:
         etiquetas.append("Edición extraordinaria")
+    if item.de_ayer:
+        etiquetas.append(f"Publicada ayer ({item.norma.fecha})")
     if item.ya_informada:
         etiquetas.append("ya informada en un correo anterior")
     return etiquetas
@@ -133,6 +135,7 @@ def texto_plano(informe: Informe, ctx: Contexto) -> str:
         for entidad, items in _baja_por_entidad(informe.baja).items():
             partes = [f"{i.norma.titulo}"
                       + (" [Edición extraordinaria]" if i.norma.extraordinaria else "")
+                      + (" [Publicada ayer]" if i.de_ayer else "")
                       + f" ({i.norma.sumilla}) " + (i.norma.url or "sin enlace")
                       for i in items]
             s.append(f"* {entidad} ({len(items)}): " + " · ".join(partes))
@@ -199,6 +202,7 @@ def html(informe: Informe, ctx: Contexto) -> str:
             partes = [
                 _a(i.norma.url, i.norma.titulo)
                 + (_chip("Edición extraordinaria") if i.norma.extraordinaria else "")
+                + (_chip("Publicada ayer", "#666") if i.de_ayer else "")
                 + f' <span style="color:#555">({escape(i.norma.sumilla)})</span>'
                 for i in items]
             p.append(f'<div style="margin:0 0 6px;font-size:13px"><b>{escape(entidad)}</b> '

@@ -83,11 +83,13 @@ def ejecutar(args: argparse.Namespace) -> int:
     # --- 1. Consultas a El Peruano (como máximo 2 al listado) ---
     fuente = Fuente()
     normas_hoy = fuente.normas_por_fecha(hoy) if es_prueba else fuente.normas_de_hoy()
-    extras_ayer = []
+    normas_ayer = []
     if args.modo == "completo":
-        extras_ayer = fuente.normas_por_fecha(hoy - timedelta(days=1), solo_extraordinarias=True)
-    print(f"Normas de {hoy:%d/%m/%Y}: {len(normas_hoy)}. "
-          f"Extraordinarias de ayer: {len(extras_ayer)}.")
+        # Ayer completo (no solo tipo=on): así también se recogen las normas ordinarias
+        # publicadas después de la última ejecución de ayer. Es la misma cantidad de consultas.
+        normas_ayer = fuente.normas_por_fecha(hoy - timedelta(days=1))
+    print(f"Normas de {hoy:%d/%m/%Y}: {len(normas_hoy)}. Normas de ayer: {len(normas_ayer)} "
+          f"({sum(n.extraordinaria for n in normas_ayer)} extraordinarias).")
     otras_fechas = sum(1 for n in normas_hoy if n.fecha != f"{hoy:%d/%m/%Y}")
     if otras_fechas:
         errores.append(f"{otras_fechas} norma(s) del listado de hoy traen otra fecha.")
@@ -96,7 +98,7 @@ def ejecutar(args: argparse.Namespace) -> int:
 
     # --- 2. Clasificación ---
     vistas = estado.cargar_vistas()
-    informe = armar_informe(args.modo, normas_hoy, extras_ayer, set(vistas), reglas)
+    informe = armar_informe(args.modo, normas_hoy, normas_ayer, set(vistas), reglas)
     dias = int(reglas.get("estado", {}).get("dias_a_conservar", 10))
 
     sin_novedades = args.modo == "novedades" and not informe.hay_contenido()

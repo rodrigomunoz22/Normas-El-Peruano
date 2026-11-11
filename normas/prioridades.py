@@ -71,6 +71,7 @@ class Item:
     prioridad: str
     una_linea: bool = False        # no se resume con Claude: se muestra la sumilla del listado
     ya_informada: bool = False     # ya había salido en un correo anterior
+    de_ayer: bool = False          # norma ordinaria de ayer que no alcanzó a salir en un correo
     resumen: str = ""
     nota_resumen: str = ""         # p. ej. "Resumen basado solo en el título..."
 
@@ -124,25 +125,29 @@ def _sin_duplicados(normas: list[Norma]) -> list[Norma]:
     return salida
 
 
-def armar_informe(modo: str, normas_hoy: list[Norma], extraordinarias_ayer: list[Norma],
+def armar_informe(modo: str, normas_hoy: list[Norma], normas_ayer: list[Norma],
                   claves_vistas: set[str], reglas: dict) -> Informe:
     """Decide qué norma va en qué sección.
 
-    modo 'completo'  -> se envía todo lo de hoy y la edición extraordinaria de ayer.
+    modo 'completo'  -> se envía todo lo de hoy, la edición extraordinaria de ayer y las
+                        normas ordinarias de ayer que no salieron en ningún correo
+                        (por ejemplo, las publicadas después de las 15:30).
     modo 'novedades' -> solo las normas de hoy cuya clave no esté en claves_vistas.
     """
     if modo not in ("completo", "novedades"):
         raise ValueError(f"Modo desconocido: {modo}")
     if modo == "novedades":
-        extraordinarias_ayer = []
+        normas_ayer = []
 
-    extraordinarias_ayer = _sin_duplicados(extraordinarias_ayer)
-    claves_extra = {n.clave for n in extraordinarias_ayer}
-    todas = _sin_duplicados(extraordinarias_ayer + normas_hoy)
+    normas_ayer = _sin_duplicados(normas_ayer)
+    claves_extra = {n.clave for n in normas_ayer if n.extraordinaria}
+    claves_ordinarias_ayer = {n.clave for n in normas_ayer if not n.extraordinaria}
+    todas = _sin_duplicados(normas_ayer + normas_hoy)
     informe = Informe(modo=modo, revisadas=len(todas), claves_revisadas=[n.clave for n in todas])
 
     if modo == "completo":
-        candidatas = todas
+        candidatas = [n for n in todas if not (n.clave in claves_ordinarias_ayer
+                                               and n.clave in claves_vistas)]
     else:
         candidatas = [n for n in todas if n.clave not in claves_vistas]
     claves_candidatas = {n.clave for n in candidatas}
@@ -181,7 +186,8 @@ def armar_informe(modo: str, normas_hoy: list[Norma], extraordinarias_ayer: list
             continue
         p = prioridad(n, reglas)
         item = Item(norma=n, prioridad=p, una_linea=(p == BAJA),
-                    ya_informada=(modo == "completo" and n.clave in claves_vistas))
+                    ya_informada=(modo == "completo" and n.clave in claves_vistas),
+                    de_ayer=n.clave in claves_ordinarias_ayer)
         if es_prioritaria(n, reglas):
             informe.institucional.append(item)
         elif n.clave in claves_extra:

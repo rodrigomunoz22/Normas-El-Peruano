@@ -9,7 +9,7 @@ Corre en GitHub Actions: no depende de que ninguna computadora esté encendida.
 
 | Hora (Lima) | Cron (UTC)    | Modo      | Qué consulta                                        | Qué envía |
 |-------------|---------------|-----------|-----------------------------------------------------|-----------|
-| 8:30        | `30 13 * * *` | completo  | Edición extraordinaria de ayer + todo lo de hoy     | Todo, ordenado por secciones |
+| 8:30        | `30 13 * * *` | completo  | Todo lo de ayer + todo lo de hoy                    | Todo lo de hoy, la extraordinaria de ayer y las normas ordinarias de ayer que no salieron en un correo anterior (etiqueta "Publicada ayer") |
 | 12:00       | `0 17 * * *`  | novedades | Todo lo de hoy                                      | Solo las normas que no están en `data/vistas.json` |
 | 15:30       | `30 20 * * *` | novedades | Todo lo de hoy                                      | Igual; si no hay novedades, no envía correo |
 

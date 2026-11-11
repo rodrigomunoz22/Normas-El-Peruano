@@ -493,3 +493,30 @@ def test_correo_escapa_html(reglas):
     informe = armar_informe("completo", [n], [], set(), reglas)
     pagina = correo.html(informe, _ctx())
     assert "<script>" not in pagina and "SALUD &lt;b&gt;" in pagina
+
+
+# --- Normas ordinarias de ayer que no alcanzaron a salir -------------------------
+
+def test_completo_recoge_ordinarias_de_ayer_no_vistas(regionales, reglas):
+    ayer = regionales                                  # día completo del 05/11/2026
+    ordinarias = [n for n in ayer if not n.extraordinaria]
+    extras = [n for n in ayer if n.extraordinaria]
+    tardias = [n for n in ordinarias if not es_municipal_excluida(n, reglas)][-4:]
+    vistas = {n.clave for n in ayer} - {n.clave for n in tardias}
+    hoy = [norma(entidad="SALUD", fecha="06/11/2026", clave="hoy-1")]
+    informe = armar_informe("completo", hoy, ayer, vistas, reglas)
+    individuales = (informe.institucional + informe.extraordinaria_ayer + informe.alta
+                    + informe.media + informe.baja)
+    agrupadas = {n.clave for c in informe.concentradas for ns in c.por_tipo.values() for n in ns}
+    enviadas = {i.norma.clave for i in individuales} | agrupadas
+    assert enviadas == {"hoy-1"} | {n.clave for n in tardias} | {
+        n.clave for n in extras if not es_municipal_excluida(n, reglas)}
+    assert {i.norma.clave for i in individuales if i.de_ayer} <= {n.clave for n in tardias}
+    assert informe.revisadas == len(ayer) + 1
+    # Las ordinarias de ayer no entran en la sección de la edición extraordinaria.
+    assert all(i.norma.extraordinaria for i in informe.extraordinaria_ayer)
+
+
+def test_novedades_no_mira_ayer(regionales, reglas):
+    informe = armar_informe("novedades", [], regionales, set(), reglas)
+    assert not informe.hay_contenido() and informe.revisadas == 0
