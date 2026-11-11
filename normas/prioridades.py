@@ -115,6 +115,67 @@ class Concentracion:
 
 
 @dataclass
+class Agregado:
+    """Normas rutinarias de una entidad contadas por acción y circunscripción."""
+    entidad: str
+    etiqueta: str
+    fecha: str
+    normas: list[Norma]
+    conteo: "OrderedDict[str, OrderedDict[str, int]]"   # acción -> {circunscripción: resoluciones}
+    enlaces_en_concentracion: bool = False               # sus enlaces ya salen en la sección 5
+
+
+ACCIONES = [
+    (r"^NOMBRA", "Nombramientos"),
+    (r"^ACEPTAN? (LA )?RENUNCIA", "Renuncias aceptadas"),
+    (r"^DESIGNA", "Designaciones"),
+    (r"^DAN POR CONCLUID", "Conclusiones de nombramiento o designación"),
+    (r"^DEJAN SIN EFECTO", "Dejadas sin efecto"),
+]
+RE_DISTRITO = re.compile(
+    r"(?i:Distritos? Fiscal(?:es)?) (?:del |de )(.+?)"
+    r"(?= y (?:designan|nombran|dictan|aceptan|dan )|$)")
+SIN_DISTRITO = "sin distrito fiscal en la sumilla"
+
+
+def accion_de(sumilla: str) -> str:
+    norm = normalizar(sumilla)
+    for patron, nombre in ACCIONES:
+        if re.search(patron, norm):
+            return nombre
+    return "Otras"
+
+
+def circunscripciones_de(sumilla: str) -> list[str]:
+    """Distritos fiscales mencionados en la sumilla (solo lo que la sumilla dice)."""
+    m = RE_DISTRITO.search(sumilla or "")
+    if not m:
+        return [SIN_DISTRITO]
+    # "de la Selva Central" -> "Selva Central", pero "de La Libertad" -> "La Libertad".
+    partes = [re.sub(r"^(la|los|las|el) ", "", p.strip()) for p in re.split(r",| y ", m.group(1))]
+    return [p for p in partes if p]
+
+
+def regla_de_agregado(norma: Norma, reglas: dict) -> dict | None:
+    entidad = normalizar(norma.entidad)
+    for regla in reglas.get("resumen_agregado") or []:
+        if entidad == normalizar(regla.get("entidad", "")) and _coincide_patron(
+                normalizar(norma.sumilla), [regla.get("patron", "")]):
+            return regla
+    return None
+
+
+def _agregar(normas: list[Norma], etiqueta: str) -> Agregado:
+    conteo: "OrderedDict[str, OrderedDict[str, int]]" = OrderedDict()
+    for n in normas:
+        por_lugar = conteo.setdefault(accion_de(n.sumilla), OrderedDict())
+        for lugar in circunscripciones_de(n.sumilla):
+            por_lugar[lugar] = por_lugar.get(lugar, 0) + 1
+    return Agregado(entidad=normas[0].entidad, etiqueta=etiqueta, fecha=normas[0].fecha,
+                    normas=normas, conteo=conteo)
+
+
+@dataclass
 class Informe:
     modo: str
     institucional: list[Item] = field(default_factory=list)
@@ -123,6 +184,7 @@ class Informe:
     media: list[Item] = field(default_factory=list)
     concentradas: list[Concentracion] = field(default_factory=list)
     baja: list[Item] = field(default_factory=list)
+    agregados: list[Agregado] = field(default_factory=list)
     municipales_omitidas: int = 0
     revisadas: int = 0
     claves_revisadas: list[str] = field(default_factory=list)
@@ -137,7 +199,8 @@ class Informe:
         en_grupos = sum(len(ns) for c in self.concentradas if not c.prioritaria
                         for ns in c.por_tipo.values())
         return (len(self.institucional) + len(self.extraordinaria_ayer) + len(self.alta)
-                + len(self.media) + len(self.baja) + en_grupos)
+                + len(self.media) + len(self.baja) + en_grupos
+                + sum(len(a.normas) for a in self.agregados))
 
     def hay_contenido(self) -> bool:
         return self.total_a_enviar() > 0
@@ -208,9 +271,16 @@ def armar_informe(modo: str, normas_hoy: list[Norma], normas_ayer: list[Norma],
             prioritaria=es_prioritaria(miembros[0], reglas)))
 
     # --- Secciones: cada norma aparece una sola vez, en la primera que le corresponda ---
+    claves_sin_muni = {m.clave for m in sin_muni}
+    por_agregar: "OrderedDict[tuple[str, str, str], list[Norma]]" = OrderedDict()
     for n in candidatas:
-        if n.clave not in {m.clave for m in sin_muni}:
+        if n.clave not in claves_sin_muni:
             continue
+        regla = regla_de_agregado(n, reglas)
+        if regla and not es_prioritaria(n, reglas):
+            llave = (normalizar(n.entidad), n.fecha, regla.get("etiqueta", ""))
+            por_agregar.setdefault(llave, []).append(n)
+            continue                       # se cuenta en el resumen agregado, no una por una
         p = prioridad(n, reglas)
         item = Item(norma=n, prioridad=p, detalle=requiere_detalle(n, reglas),
                     ya_informada=(modo == "completo" and n.clave in claves_vistas),
@@ -227,4 +297,8 @@ def armar_informe(modo: str, normas_hoy: list[Norma], normas_ayer: list[Norma],
             continue                       # la entrada agrupada reemplaza a la línea individual
         else:
             informe.baja.append(item)
+    for (entidad, fecha, etiqueta), normas in por_agregar.items():
+        agregado = _agregar(normas, etiqueta)
+        agregado.enlaces_en_concentracion = (entidad, fecha) in concentrados
+        informe.agregados.append(agregado)
     return informe

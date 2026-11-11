@@ -566,3 +566,37 @@ def test_normas_sin_detalle_muestran_la_sumilla_sin_llamar_a_claude(dia, reglas)
     ds = next(i for i in informe.media if "009-2026-IN" in i.norma.titulo)
     assert not ds.detalle and ds.norma.sumilla in texto
     assert correo.AVISO_ALCANCE in texto
+
+
+# --- Resumen agregado de fiscales del Ministerio Público -------------------------
+
+def test_fiscales_se_agregan_por_accion_y_distrito(regionales, reglas):
+    informe = armar_informe("completo", regionales, [], set(), reglas)
+    assert len(informe.agregados) == 1
+    a = informe.agregados[0]
+    assert (a.entidad, a.etiqueta, a.fecha) == ("MINISTERIO PÚBLICO", "Fiscales", "05/11/2026")
+    assert len(a.normas) == 31                         # 32 del MP menos "Dejan sin efecto..."
+    assert sum(1 for n in a.normas if n.sumilla.startswith("Nombran")) == 23
+    assert a.conteo["Nombramientos"]["Callao"] == 3
+    assert a.conteo["Nombramientos"]["Lima Centro"] == 4      # incluye la resolución plural
+    assert a.conteo["Nombramientos"]["Lima Este"] == 2
+    assert a.conteo["Nombramientos"]["La Libertad"] == 1
+    assert a.conteo["Nombramientos"]["Selva Central"] == 1
+    assert a.conteo["Renuncias aceptadas"] == {
+        "Puno": 1, "Arequipa": 1, "Lima Norte": 2, "Selva Central": 1, "Lima": 1}
+    assert a.conteo["Designaciones"]["Apurímac"] == 1
+    # No se abren sus páginas ni aparecen una por una.
+    claves = {n.clave for n in a.normas}
+    assert claves.isdisjoint({i.norma.clave for i in informe.items_con_resumen()})
+    assert claves.isdisjoint({i.norma.clave for i in informe.baja + informe.media})
+    assert a.enlaces_en_concentracion                  # el MP supera el umbral ese día
+    texto = correo.texto_plano(informe, _ctx())
+    assert "MINISTERIO PÚBLICO — Fiscales (05/11/2026): 31 resoluciones" in texto
+    assert "Nombramientos: 23" in texto and "Renuncias aceptadas: 6" in texto
+
+
+def test_fiscales_en_novedades_solo_cuenta_las_nuevas(regionales, reglas):
+    mp = [n for n in regionales if n.entidad == "MINISTERIO PÚBLICO"]
+    vistas = {n.clave for n in regionales} - {n.clave for n in mp[:2]}
+    informe = armar_informe("novedades", regionales, [], vistas, reglas)
+    assert [len(a.normas) for a in informe.agregados] == [2]

@@ -87,6 +87,9 @@ Todo está en [`config/reglas.yml`](config/reglas.yml); no hace falta tocar cód
   las listas `ministerios`, `autonomos` y `reguladores`) y el tope de páginas por ejecución.
   **Revisa esas tres listas**: los nombres deben coincidir con el encabezado que usa El Peruano;
   cuatro de ellos aún no se han visto en el listado y están marcados en el archivo.
+- `resumen_agregado`: normas rutinarias que no se listan una por una. Valor inicial: los
+  nombramientos, renuncias y designaciones de fiscales del Ministerio Público, que se cuentan
+  por acción y por distrito fiscal usando solo la sumilla (se cuentan resoluciones, no personas).
 - `resumenes`: normas por llamada a Claude y límite de caracteres por norma.
 
 Las comparaciones ignoran tildes y mayúsculas. Después de editar, corre `python -m pytest`.

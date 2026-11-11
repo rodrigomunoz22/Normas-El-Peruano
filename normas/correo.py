@@ -13,7 +13,7 @@ from datetime import datetime
 from email.message import EmailMessage
 from html import escape
 
-from .prioridades import Concentracion, Informe, Item
+from .prioridades import Agregado, Concentracion, Informe, Item
 
 SMTP_HOST, SMTP_PUERTO = "smtp.gmail.com", 465
 URL_FUENTE = "https://diariooficial.elperuano.pe/Normas"
@@ -82,6 +82,27 @@ def _desglose(c: Concentracion) -> str:
     return "; ".join(f"{tipo.capitalize()}: {n}" for tipo, n in c.conteo_por_tipo.items())
 
 
+def _lineas_agregado(a: Agregado) -> tuple[str, list[str]]:
+    """(título, líneas) del resumen agregado; cuenta resoluciones, no personas."""
+    titulo = f"{a.entidad} — {a.etiqueta} ({a.fecha}): {len(a.normas)} resoluciones"
+    lineas = []
+    for accion, lugares in a.conteo.items():
+        total = sum(1 for n in a.normas if _accion(n) == accion)
+        detalle = ", ".join(f"{lugar} ({k})" for lugar, k in
+                            sorted(lugares.items(), key=lambda x: (-x[1], x[0])))
+        lineas.append(f"{accion}: {total} — {detalle}")
+    return titulo, lineas
+
+
+def _accion(norma) -> str:
+    from .prioridades import accion_de
+    return accion_de(norma.sumilla)
+
+
+NOTA_AGREGADO = ("Conteo por resolución según la sumilla del listado; una resolución puede "
+                 "comprender a más de una persona o distrito.")
+
+
 def _pie(informe: Informe, ctx: Contexto) -> list[str]:
     lineas = [
         f"Se omitieron {informe.municipales_omitidas} normas municipales.",
@@ -135,9 +156,18 @@ def texto_plano(informe: Informe, ctx: Contexto) -> str:
                     for n in normas:
                         s.append(f"  - {n.titulo}: " + (n.url or "sin enlace en la fuente"))
             s.append("")
-    if informe.baja:
+    if informe.baja or informe.agregados:
         t = "6. Prioridad baja"
         s += [t.upper(), "-" * len(t)]
+        for a in informe.agregados:
+            titulo, lineas = _lineas_agregado(a)
+            s.append(f"* {titulo}")
+            s += [f"  - {l}" for l in lineas]
+            s.append(f"  ({NOTA_AGREGADO})")
+            if a.enlaces_en_concentracion:
+                s.append("  Enlaces en la sección 5.")
+            else:
+                s += [f"  - {n.titulo}: " + (n.url or "sin enlace en la fuente") for n in a.normas]
         for entidad, items in _baja_por_entidad(informe.baja).items():
             s.append(f"* {entidad} ({len(items)}):")
             for i in items:
@@ -206,8 +236,21 @@ def html(informe: Informe, ctx: Contexto) -> str:
                 enlaces = [_a(n.url, n.titulo) for normas in c.por_tipo.values() for n in normas]
                 p.append('<div style="font-size:12px">' + " · ".join(enlaces) + "</div>")
             p.append("</div>")
-    if informe.baja:
-        p.append(f"{h2}6. Prioridad baja ({len(informe.baja)})</h2>")
+    if informe.baja or informe.agregados:
+        n_baja = len(informe.baja) + sum(len(a.normas) for a in informe.agregados)
+        p.append(f"{h2}6. Prioridad baja ({n_baja})</h2>")
+        for a in informe.agregados:
+            titulo, lineas = _lineas_agregado(a)
+            p.append(f'<div style="margin:0 0 10px;font-size:13px"><b>{escape(titulo)}</b>'
+                     '<ul style="margin:2px 0 0;padding-left:18px">'
+                     + "".join(f"<li>{escape(l)}</li>" for l in lineas) + "</ul>"
+                     f'<div style="color:#8a5a00;font-size:12px">{escape(NOTA_AGREGADO)}</div>')
+            if a.enlaces_en_concentracion:
+                p.append('<div style="font-size:12px;color:#666">Enlaces en la sección 5.</div>')
+            else:
+                p.append('<div style="font-size:12px">'
+                         + " · ".join(_a(n.url, n.titulo) for n in a.normas) + "</div>")
+            p.append("</div>")
         for entidad, items in _baja_por_entidad(informe.baja).items():
             p.append(f'<div style="margin:0 0 8px;font-size:13px"><b>{escape(entidad)}</b> '
                      f'({len(items)})<ul style="margin:2px 0 0;padding-left:18px">')

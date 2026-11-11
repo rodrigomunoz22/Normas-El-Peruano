@@ -132,6 +132,14 @@ revision_detallada:
   max_textos_por_ejecucion: 40    # tope de páginas abiertas por ejecución
   pausa_entre_textos_segundos: 1.0
 
+# --- Resumen agregado (sin abrir páginas) ---------------------------------
+# Normas rutinarias que no se listan una por una: se cuentan por acción y por
+# distrito fiscal usando solo la sumilla del listado.
+resumen_agregado:
+  - entidad: MINISTERIO PÚBLICO
+    etiqueta: Fiscales
+    patron: '\bFISCAL(ES)?\b'     # sobre la sumilla
+
 # --- Resúmenes con Claude -------------------------------------------------
 resumenes:
   normas_por_llamada: 6           # normas agrupadas en cada llamada a Claude
