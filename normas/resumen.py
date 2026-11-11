@@ -16,7 +16,7 @@ from .prioridades import Item
 
 # Identificador vigente según la documentación de modelos de la API de Claude
 # (consultada el 11/11/2026). Se cambia con la variable de entorno CLAUDE_MODEL.
-MODELO_POR_DEFECTO = "claude-opus-5-5"
+MODELO_POR_DEFECTO = "claude-haiku-5-5"
 
 NOTA_SOLO_TITULO = ("Resumen basado solo en el título y la sumilla del listado "
                     "(no se pudo leer el texto de la norma).")

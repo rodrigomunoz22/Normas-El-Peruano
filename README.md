@@ -37,7 +37,8 @@ cuántas normas se revisaron, la hora real (Lima y UTC) y los errores no fatales
    mecanismo del monitor de proyectos de ley; aquí los secretos tienen otros nombres
    (`GMAIL_*` y `MAIL_TO` en vez de `EMAIL_*`).
 3. (Opcional) En **Variables**, crea `CLAUDE_MODEL` para elegir el modelo. Si no existe se usa
-   `claude-opus-5-5`. Un modelo más barato (por ejemplo `claude-haiku-5-5`) reduce el costo.
+   `claude-haiku-5-5`, el más económico. Si los resúmenes salen flojos, prueba `claude-opus-5-5`
+   (mejor calidad, costo bastante mayor).
 4. En **Settings → Actions → General → Workflow permissions**, marca *Read and write
    permissions* (el workflow guarda el estado con un commit).
 5. Pestaña **Actions** → *Paso 0 - prueba de conexión* → **Run workflow**. Debe imprimir cuántas
