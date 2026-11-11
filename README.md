@@ -16,7 +16,7 @@ Corre en GitHub Actions: no depende de que ninguna computadora esté encendida.
 GitHub puede retrasar las ejecuciones programadas (15–30 minutos o más) e incluso omitirlas: el
 11/11/2026 la de las 8:30 (horario original) no se disparó. Los horarios usan minutos poco
 comunes porque en las horas en punto y a las y media GitHub tiene más carga. Por eso el workflow tiene además seis horarios de
-respaldo (9:23, 10:11, 12:53, 13:41, 16:27 y 17:13). `data/franjas.json` anota qué franjas del
+respaldo (9:24, 10:11, 12:53, 13:41, 16:27 y 17:13). `data/franjas.json` anota qué franjas del
 día ya se atendieron: un respaldo solo actúa si la franja quedó pendiente, y si no, termina sin
 consultar el sitio ni enviar nada. Siguen siendo como máximo tres correos al día. El correo
 muestra la hora real de ejecución y avisa en el pie cuando cubre una franja atrasada.
