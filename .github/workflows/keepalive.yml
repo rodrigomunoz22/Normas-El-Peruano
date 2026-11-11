@@ -1,0 +1,30 @@
+name: Keepalive semanal
+
+# GitHub desactiva los workflows programados de un repositorio tras 60 días sin
+# actividad. Este paso deja un commit semanal para que eso no ocurra.
+on:
+  schedule:
+    - cron: '17 9 * * 1'   # lunes, 4:17 a. m. en Lima
+  workflow_dispatch:
+
+concurrency:
+  group: resumen-normas
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  keepalive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Registrar actividad
+        run: |
+          date -u +"%Y-%m-%dT%H:%M:%SZ" > data/keepalive.txt
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/keepalive.txt
+          git commit -m "Keepalive semanal"
+          git push

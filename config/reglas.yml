@@ -1,0 +1,77 @@
+# Reglas del monitor de normas de El Peruano.
+# Todo se compara sin tildes ni mayúsculas, así que puedes escribir con o sin ellas.
+# Después de editar, corre:  python -m pytest   (y una prueba con --dry-run).
+
+# --- 1. Prioridad institucional -------------------------------------------
+# Las normas de estas entidades van siempre en la primera sección del correo.
+entidades_prioritarias:
+  - PRESIDENCIA DEL CONSEJO DE MINISTROS
+  - ECONOMÍA Y FINANZAS
+
+# --- Filtro de municipalidades --------------------------------------------
+municipalidades:
+  prefijo: MUNICIPALIDAD          # se excluye toda entidad que empiece así
+  excepciones:                    # ...salvo estas (nombre exacto de la entidad)
+    - MUNICIPALIDAD METROPOLITANA DE LIMA
+
+# --- 3. Prioridad alta ----------------------------------------------------
+alta:
+  tipos:                          # tipo de norma (lo que va antes de "N°")
+    - LEY
+    - RESOLUCIÓN LEGISLATIVA
+    - DECRETO LEGISLATIVO
+    - DECRETO DE URGENCIA
+    - RESOLUCIÓN SUPREMA
+  patrones:                       # expresiones regulares sobre título + sumilla
+    - 'ESTADO DE EMERGENCIA'
+    - 'DECLARA\w* .*EMERGENCIA'
+
+# --- 5. Prioridad baja (se agrupa, sin resumen de Claude) -----------------
+baja:
+  patrones:                       # expresiones regulares sobre la sumilla
+    - '\bDESIGNA(N|R|CION|CIONES)?\b'
+    - '\bRENUNCIA(S)?\b'
+    - '\bENCARGA(N|R|TURA)?\b'
+    - '\bENCARGO(S)?\b'
+    - 'AUTORIZA(N)? (EL )?VIAJE'
+  entidades:                      # todo lo que emitan estas entidades es baja
+    - JURADO NACIONAL DE ELECCIONES
+  # Orden de evaluación. La regla general es alta -> media -> baja, pero una
+  # Resolución Ministerial que solo designa a alguien es media por tipo y baja
+  # por contenido. Con "true", el contenido (baja) gana sobre el tipo.
+  gana_sobre_media: true          # RM/DS de designación o viaje -> baja
+  gana_sobre_alta: false          # Resolución Suprema de designación -> sigue en alta
+
+# --- 4. Prioridad media ---------------------------------------------------
+# Decretos supremos y resoluciones ministeriales de otros sectores, gobiernos
+# regionales y resoluciones de organismos reguladores o autónomos. Es también
+# la prioridad de cualquier norma que no encaje en alta ni en baja.
+media:
+  tipos:
+    - DECRETO SUPREMO
+    - RESOLUCIÓN MINISTERIAL
+  prefijos_entidad:
+    - GOBIERNO REGIONAL
+prioridad_por_defecto: media      # media o baja
+
+# --- Criterio de concentración --------------------------------------------
+concentracion:
+  umbral: 5                       # se reporta si una entidad emite MÁS de este número en un día
+
+# --- Modo novedades (12:00 y 15:30) ---------------------------------------
+novedades:
+  enviar_sin_novedades: false     # true = manda correo aunque no haya normas nuevas
+
+# --- Resúmenes ------------------------------------------------------------
+resumenes:
+  normas_por_llamada: 6           # normas agrupadas en cada llamada a Claude
+  max_caracteres_por_norma: 20000 # si el texto es más largo se corta y se avisa en el resumen
+  # Texto completo desde busquedas.elperuano.pe (una petición por norma a resumir).
+  # Pon max_textos_por_ejecucion en 0 para no pedir textos: los resúmenes saldrán
+  # solo del título y la sumilla del listado, y así se indicará en el correo.
+  max_textos_por_ejecucion: 40
+  pausa_entre_textos_segundos: 1.0
+
+# --- Estado ---------------------------------------------------------------
+estado:
+  dias_a_conservar: 10

@@ -1,0 +1,105 @@
+name: Resumen de normas de El Peruano
+
+on:
+  schedule:
+    - cron: '30 13 * * *'   # 8:30 Lima, modo completo
+    - cron: '0 17 * * *'    # 12:00 Lima, modo novedades
+    - cron: '30 20 * * *'   # 15:30 Lima, modo novedades
+  workflow_dispatch:
+    inputs:
+      fecha:
+        description: 'Fecha a consultar (dd/mm/aaaa). Vacío = hoy en Lima'
+        required: false
+        default: ''
+      modo:
+        description: 'Modo de ejecución'
+        type: choice
+        options: [completo, novedades]
+        default: completo
+      enviar:
+        description: 'Enviar el correo (si se desmarca, el HTML queda como artefacto)'
+        type: boolean
+        default: true
+
+# Evita que dos ejecuciones se solapen (y que compitan por data/vistas.json).
+concurrency:
+  group: resumen-normas
+  cancel-in-progress: false
+
+permissions:
+  contents: write   # para guardar data/vistas.json y data/resumenes.json
+
+jobs:
+  resumen:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      GMAIL_USER: ${{ secrets.GMAIL_USER }}
+      GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+      MAIL_TO: ${{ secrets.MAIL_TO }}
+      CLAUDE_MODEL: ${{ vars.CLAUDE_MODEL }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+
+      - name: Instalar dependencias
+        run: pip install -r requirements.txt
+
+      - name: Ejecutar el monitor
+        env:
+          EVENTO: ${{ github.event_name }}
+          CRON: ${{ github.event.schedule }}
+          IN_FECHA: ${{ inputs.fecha }}
+          IN_MODO: ${{ inputs.modo }}
+          IN_ENVIAR: ${{ inputs.enviar }}
+        run: |
+          ARGS=()
+          if [ "$EVENTO" = "schedule" ]; then
+            # Solo el cron de las 8:30 (13:30 UTC) es modo completo.
+            if [ "$CRON" = "30 13 * * *" ]; then MODO=completo; else MODO=novedades; fi
+          else
+            MODO="${IN_MODO:-completo}"
+            if [ -n "$IN_FECHA" ]; then ARGS+=(--fecha "$IN_FECHA"); fi
+            if [ "$IN_ENVIAR" = "false" ]; then ARGS+=(--no-enviar); fi
+          fi
+          echo "Evento: $EVENTO | cron: ${CRON:-ninguno} | modo: $MODO"
+          python -m normas --modo "$MODO" "${ARGS[@]}"
+
+      - name: Guardar el correo como artefacto (cuando no se envía)
+        if: always() && github.event_name == 'workflow_dispatch' && inputs.enviar == false
+        uses: actions/upload-artifact@v4
+        with:
+          name: correo-de-prueba
+          path: salida/
+          if-no-files-found: warn
+
+      - name: Guardar el estado (data/)
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/vistas.json data/resumenes.json
+          if git diff --staged --quiet; then
+            echo "Sin cambios de estado."
+            exit 0
+          fi
+          git commit -m "Actualiza estado de normas vistas"
+          for intento in 1 2 3; do
+            git push && exit 0
+            sleep $((intento * 5))
+            git pull --rebase
+          done
+          echo "No se pudo guardar el estado" >&2
+          exit 1
+
+      - name: Avisar por correo si algo falló
+        if: failure()
+        run: >
+          python -m normas --aviso-falla
+          "Ejecución ${{ github.run_id }} (${{ github.event_name }}):
+          ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"

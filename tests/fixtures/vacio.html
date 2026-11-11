@@ -1,0 +1,18 @@
+<script>
+    var extraordinaria = 0;
+</script>
+    <input id="hdfRaiz" type="hidden" value='/' />
+    <script>
+        var spans = document.getElementsByClassName("dataUrl");
+        var nSpans = spans.length;
+        for (var i = 0; i < nSpans; i++) {
+            spans[i].onclick = function () {
+                var idNorma = this.getAttribute("data-id");
+                var url = hdfRaiz.value + "Normas/VisorPDF";
+                var link = this.getAttribute("data-url"); //AA
+                var urlPdf = hdfRaiz.value + "Normas/obtenerDocumentoLegal/" + idNorma + "?link=" + link;
+                sessionStorage.setItem("urlPdf", urlPdf);
+                window.open(url);
+            }
+        }
+    </script>
