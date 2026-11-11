@@ -143,6 +143,8 @@ def ejecutar(args: argparse.Namespace) -> int:
             encoding="utf-8")
         (DIR_SALIDA / "correo.txt").write_text(cuerpo_txt, encoding="utf-8")
         print(f"Correo no enviado; quedó en {DIR_SALIDA}/correo.html y correo.txt")
+        print(f"Asunto: {asunto}\n")
+        print(cuerpo_txt)       # también en el registro, para revisarlo sin bajar el artefacto
     else:
         correo.enviar(asunto, cuerpo_txt, cuerpo_html)
         print(f"Correo enviado: {asunto}")
