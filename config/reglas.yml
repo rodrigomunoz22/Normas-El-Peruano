@@ -8,6 +8,11 @@ entidades_prioritarias:
   - PRESIDENCIA DEL CONSEJO DE MINISTROS
   - ECONOMÍA Y FINANZAS
 
+# También van en la primera sección, emita quien las emita, las normas de estos
+# tipos. Se leen completas y Claude las resume, igual que las de PCM y MEF.
+tipos_prioritarios:
+  - DECRETO LEGISLATIVO
+
 # --- Filtro de municipalidades --------------------------------------------
 municipalidades:
   prefijo: MUNICIPALIDAD          # se excluye toda entidad que empiece así
@@ -143,7 +148,7 @@ resumen_agregado:
 # --- Resúmenes con Claude -------------------------------------------------
 resumenes:
   normas_por_llamada: 6           # normas agrupadas en cada llamada a Claude
-  max_caracteres_por_norma: 20000 # si el texto es más largo se corta y se avisa en el resumen
+  max_caracteres_por_norma: 60000 # si el texto es más largo se corta y se avisa en el resumen
 
 # --- Estado ---------------------------------------------------------------
 estado:

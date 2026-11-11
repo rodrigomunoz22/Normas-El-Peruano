@@ -16,7 +16,7 @@ Corre en GitHub Actions: no depende de que ninguna computadora esté encendida.
 GitHub puede retrasar las ejecuciones programadas (15–30 minutos o más). Por eso el correo
 muestra la hora real de ejecución y el modo novedades se apoya en el estado guardado, no en la hora.
 
-Orden del correo: 1) PCM y MEF, 2) edición extraordinaria de ayer (solo 8:30), 3) prioridad
+Orden del correo: 1) PCM, MEF y decretos legislativos, 2) edición extraordinaria de ayer (solo 8:30), 3) prioridad
 alta, 4) prioridad media (incluye gobiernos regionales), 5) instituciones con más de 5 normas en
 un día, 6) prioridad baja agrupada. El pie indica cuántas normas municipales se omitieron,
 cuántas normas se revisaron, la hora real (Lima y UTC) y los errores no fatales.
@@ -75,6 +75,8 @@ muestra la sumilla del listado en lugar del resumen de Claude y lo indica.
 Todo está en [`config/reglas.yml`](config/reglas.yml); no hace falta tocar código:
 
 - `entidades_prioritarias`: entidades de la primera sección (PCM y MEF).
+- `tipos_prioritarios`: tipos de norma que también van en la primera sección y se leen
+  completos, emita quien los emita (valor inicial: Decreto Legislativo).
 - `municipalidades.excepciones`: municipalidades que **no** se excluyen. Valor inicial:
   Municipalidad Metropolitana de Lima. **Confirma si quieres esa y agrega o quita otras.**
 - `alta`, `media`, `baja`: tipos de norma y expresiones que definen cada prioridad.
@@ -101,7 +103,7 @@ Las comparaciones ignoran tildes y mayúsculas. Después de editar, corre `pytho
 - La mayoría de normas se muestra solo con su título y la sumilla del listado, tal cual, sin
   abrir su página y sin pasar por Claude. El correo lo avisa al inicio.
 - **Revisión detallada** (se abre la página, se lee el texto completo y Claude lo resume):
-  todas las normas de PCM y MEF, y las designaciones, renuncias, encargos y autorizaciones de
+  todas las normas de PCM y MEF, los decretos legislativos, y las designaciones, renuncias, encargos y autorizaciones de
   viaje de ministerios, organismos constitucionalmente autónomos y organismos reguladores (no
   las de universidades, gobiernos regionales ni organismos adscritos). En designaciones el resumen indica a quién se designa, quién
   renuncia y el cargo; en viajes, quiénes viajan, destino, fechas y los montos de pasajes y

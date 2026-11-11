@@ -17,7 +17,7 @@ from .prioridades import Agregado, Concentracion, Informe, Item
 
 SMTP_HOST, SMTP_PUERTO = "smtp.gmail.com", 465
 URL_FUENTE = "https://diariooficial.elperuano.pe/Normas"
-AVISO_ALCANCE = ("Se leyó el texto completo solo de las normas de PCM y MEF y de las "
+AVISO_ALCANCE = ("Se leyó el texto completo solo de las normas de PCM y MEF, los decretos legislativos y las "
                  "designaciones, renuncias, encargos y viajes de ministerios, organismos "
                  "constitucionalmente autónomos y organismos reguladores. En las demás se "
                  "muestra el título y la sumilla del listado, sin resumen adicional.")
@@ -39,7 +39,7 @@ def asunto(ctx: Contexto) -> str:
 
 def _secciones(informe: Informe) -> list[tuple[str, list[Item]]]:
     return [
-        ("1. PCM y MEF", informe.institucional),
+        ("1. PCM, MEF y decretos legislativos", informe.institucional),
         ("2. Edición extraordinaria de ayer", informe.extraordinaria_ayer),
         ("3. Prioridad alta", informe.alta),
         ("4. Prioridad media", informe.media),

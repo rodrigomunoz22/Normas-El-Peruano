@@ -496,7 +496,7 @@ def test_correo_asunto_y_orden_de_secciones(dia, extra, reglas):
     ctx = _ctx(["error de ejemplo"])
     assert correo.asunto(ctx) == "Normas El Peruano — 10/11/2026, 08:52"
     texto, pagina = correo.texto_plano(informe, ctx), correo.html(informe, ctx)
-    orden = ["1. PCM Y MEF", "2. EDICIÓN EXTRAORDINARIA DE AYER", "3. PRIORIDAD ALTA",
+    orden = ["1. PCM, MEF Y DECRETOS LEGISLATIVOS", "2. EDICIÓN EXTRAORDINARIA DE AYER", "3. PRIORIDAD ALTA",
              "4. PRIORIDAD MEDIA", "5. INSTITUCIONES CON MUCHAS NORMAS", "6. PRIORIDAD BAJA"]
     posiciones = [texto.index(t) for t in orden]
     assert posiciones == sorted(posiciones)
@@ -600,3 +600,17 @@ def test_fiscales_en_novedades_solo_cuenta_las_nuevas(regionales, reglas):
     vistas = {n.clave for n in regionales} - {n.clave for n in mp[:2]}
     informe = armar_informe("novedades", regionales, [], vistas, reglas)
     assert [len(a.normas) for a in informe.agregados] == [2]
+
+
+def test_decreto_legislativo_va_a_la_primera_seccion_con_detalle(reglas):
+    dl = norma(entidad="DECRETOS LEGISLATIVOS", titulo="DECRETO LEGISLATIVO N° 1700",
+               sumilla="Decreto Legislativo que modifica el Código Penal", clave="dl1")
+    otro = norma(entidad="INTERIOR", titulo="DECRETO LEGISLATIVO N° 1701",
+                 sumilla="Decreto Legislativo que fortalece la Policía", clave="dl2")
+    ley = norma(entidad="CONGRESO DE LA REPÚBLICA", titulo="LEY N° 32600",
+                sumilla="Ley que modifica algo", clave="ley1")
+    informe = armar_informe("completo", [dl, otro, ley], [], set(), reglas)
+    assert [i.norma.clave for i in informe.institucional] == ["dl1", "dl2"]
+    assert all(i.detalle for i in informe.institucional)
+    assert [i.norma.clave for i in informe.alta] == ["ley1"]
+    assert "1. PCM, MEF Y DECRETOS LEGISLATIVOS" in correo.texto_plano(informe, _ctx())

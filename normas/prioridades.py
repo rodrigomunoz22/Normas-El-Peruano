@@ -34,9 +34,12 @@ def _coincide_patron(texto: str, patrones: list[str]) -> bool:
 
 
 def es_prioritaria(norma: Norma, reglas: dict) -> bool:
-    """True si la entidad es de prioridad institucional (PCM, MEF u otras configuradas)."""
+    """True si va en la primera sección: entidad prioritaria (PCM, MEF) o tipo prioritario
+    (decreto legislativo), según config/reglas.yml."""
     entidad = normalizar(norma.entidad)
-    return entidad in {normalizar(e) for e in reglas.get("entidades_prioritarias") or []}
+    if entidad in {normalizar(e) for e in reglas.get("entidades_prioritarias") or []}:
+        return True
+    return _coincide_tipo(norma.tipo, reglas.get("tipos_prioritarios"))
 
 
 def prioridad(norma: Norma, reglas: dict) -> str:
