@@ -111,6 +111,10 @@ def ejecutar(args: argparse.Namespace) -> int:
 
     # --- 3. Resúmenes ---
     cache = estado.cargar_resumenes()
+    if not args.dry_run and not os.environ.get("ANTHROPIC_API_KEY") and any(
+            i.norma.clave not in cache for i in informe.items_con_resumen()):
+        # Se comprueba antes de abrir páginas, para no cargar al sitio en vano.
+        raise RuntimeError("Falta ANTHROPIC_API_KEY: no se pueden generar los resúmenes.")
     textos, fallo_textos = obtener_textos(informe, fuente, cache, reglas, errores)
     grave = grave or fallo_textos
     hay_clave = bool(os.environ.get("ANTHROPIC_API_KEY"))
