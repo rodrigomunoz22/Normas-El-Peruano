@@ -86,7 +86,8 @@ Todo está en [`config/reglas.yml`](config/reglas.yml); no hace falta tocar cód
 - `revision_detallada`: qué normas se leen completas (PCM/MEF y las designaciones y viajes de
   las listas `ministerios`, `autonomos` y `reguladores`) y el tope de páginas por ejecución.
   **Revisa esas tres listas**: los nombres deben coincidir con el encabezado que usa El Peruano;
-  cuatro de ellos aún no se han visto en el listado y están marcados en el archivo.
+  dos de ellos (Mujer y Poblaciones Vulnerables y Junta Nacional de Justicia) aún no se han
+  visto en el listado y están marcados en el archivo.
 - `resumen_agregado`: normas rutinarias que no se listan una por una. Valor inicial: los
   nombramientos, renuncias y designaciones de fiscales del Ministerio Público, que se cuentan
   por acción y por distrito fiscal usando solo la sumilla (se cuentan resoluciones, no personas).
