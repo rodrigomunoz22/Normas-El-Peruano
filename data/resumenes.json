@@ -12,6 +12,12 @@
    "nota": "",
    "resumen": "Autoriza el viaje en comisión de servicios de Bernardo Juan Pachas Serrano, Jefe (i) de la ONPE, a Santo Domingo, República Dominicana, del 11 al 14 de noviembre de 2026, para participar en la XIX Reunión Interamericana de Autoridades Electorales (RAE). Pasajes aéreos Lima-Santo Domingo-Lima US$ 726.76; viáticos parciales (alimentación) S/ 2,960; seguro de viaje US$ 28.00; los gastos son cubiertos por la ONPE. Debe presentar un informe en 15 días calendario tras el viaje y no hay exoneración de impuestos."
   },
+  "2572928-1": {
+   "fecha": "2026-11-12",
+   "modelo": "claude-haiku-5-5",
+   "nota": "",
+   "resumen": "Autoriza el viaje de Lucas Cisneros De la Peña, Analista de Investigación Económica II del Departamento de Investigación Económica de la Gerencia de Estudios Económicos de la SBS, a la ciudad de Hong Kong, República Popular China, del 14 al 20 de noviembre de 2026, para presentar el documento de trabajo Regulatory Divergence and Bank Capital Flows en el Workshop on Banking and Banking Regulation (17 y 18 de noviembre). Los gastos se cargan al Presupuesto 2026 de la SBS: pasaje aéreo US$ 1 943,74 y viáticos US$ 2 000,00. Debe presentar un informe en 10 días hábiles tras su reincorporación."
+  },
   "2572984-1": {
    "fecha": "2026-11-11",
    "modelo": "claude-haiku-5-5",
@@ -96,6 +102,12 @@
    "nota": "",
    "resumen": "Designa al señor JORGE LUIS HUAITALLA ROSADO en el cargo de Director Adjunto (CAP - P Nº 002) de la Dirección del Hospital de Huaycán del Ministerio de Salud, cargo de confianza. El texto no indica la fecha desde la que rige la designación."
   },
+  "2573536-1": {
+   "fecha": "2026-11-12",
+   "modelo": "claude-haiku-5-5",
+   "nota": "",
+   "resumen": "Encarga al señor Janes Edgardo Rodríguez López, Vicecontralor de Control Gubernamental, las funciones del cargo de Contralor General de la República del 10 al 14 de diciembre de 2026, por el uso del descanso vacacional del Titular. Incluye las acciones de supervisión de los órganos con dependencia directa del Despacho del Contralor durante ese período."
+  },
   "2573551-1": {
    "fecha": "2026-11-11",
    "modelo": "claude-haiku-5-5",
@@ -131,6 +143,42 @@
    "modelo": "claude-haiku-5-5",
    "nota": "",
    "resumen": "Designa al señor WALTER LIDIO GUILLEN ROJAS en el puesto de Director General de Infraestructura Hidráulica y Riego de la Dirección General de Infraestructura Hidráulica y Riego del Despacho Viceministerial de Desarrollo de Agricultura Familiar e Infraestructura Agraria y Riego del Ministerio de Desarrollo Agrario y Riego (MIDAGRI), puesto que se encontraba vacante. La resolución no indica la fecha desde la que rige la designación."
+  },
+  "2573864-1": {
+   "fecha": "2026-11-12",
+   "modelo": "claude-haiku-5-5",
+   "nota": "",
+   "resumen": "Autoriza el viaje en comisión de servicios del inspector de la Dirección General de Aeronáutica Civil ENRIQUE ASTETE RIECKHOF a Miami, Estados Unidos, del 13 al 18 de noviembre de 2026, para el chequeo de verificación de competencia de piloto y copiloto en simulador de vuelo B-737 al personal de la empresa STAR UP S.A.C. Los gastos, incluidos los viáticos de US$ 2,640.00 indicados en el cuadro anexo, son cubiertos por STAR UP S.A.C. mediante los recibos de acotación 0013909 y 0013910."
+  },
+  "2573955-1": {
+   "fecha": "2026-11-12",
+   "modelo": "claude-haiku-5-5",
+   "nota": "",
+   "resumen": "Autoriza el viaje en comisión de servicios de las químico farmacéuticos JENNY LUZ ALIAGA CONTRERAS y CARMEN ZAIDA DE LA CRUZ DELGADO, de la DIGEMID, a Hyderabad y Solan, India, del 13 de noviembre al 10 de diciembre de 2026, para inspeccionar laboratorios que solicitaron la Certificación de Buenas Prácticas de Manufactura. Pasajes: US$ 16,480.84 (2 personas, US$ 8,240.42 c/u incl. TUUA); viáticos: US$ 25,000.00 (25 días, 2 personas, US$ 12,500.00 c/u incl. gastos de instalación); total US$ 41,480.84, con cargo al presupuesto del Ministerio de Salud."
+  },
+  "2574051-1": {
+   "fecha": "2026-11-12",
+   "modelo": "claude-haiku-5-5",
+   "nota": "",
+   "resumen": "Autoriza el viaje al exterior, en misión de estudios, de personal de Oficiales Estudiantes del PCEM 'Promoción 2026' de la Escuela Superior de Guerra Aérea de la Fuerza Aérea del Perú a Bogotá, Colombia, del 17 al 20 de noviembre de 2026, para la Visita Geoestratégica. Los viáticos son US$ 370.00 x 4 días x 30 personas = US$ 44,400.00, pagados por la Fuerza Aérea del Perú con cargo a su Presupuesto Institucional 2026. La relación nominal del personal está en un anexo que no figura en el texto recibido."
+  },
+  "2574082-1": {
+   "fecha": "2026-11-12",
+   "modelo": "claude-haiku-5-5",
+   "nota": "",
+   "resumen": "Designa a la señora SHIRLY VERONICA MONTERO PURIZACA en el cargo de Directora Ejecutiva del Programa Nacional Cuna Más del Ministerio de Desarrollo e Inclusión Social, cargo que se encontraba vacante. El texto no indica la fecha desde la que rige la designación."
+  },
+  "2574106-1": {
+   "fecha": "2026-11-12",
+   "modelo": "claude-haiku-5-5",
+   "nota": "",
+   "resumen": "Designa a la señora ANDREA CECILIA ORTIZ CÁCERES en el puesto de Asesora de Coordinación Parlamentaria del Despacho Ministerial del Ministerio de Vivienda, Construcción y Saneamiento, puesto que se encontraba vacante. El texto no indica la fecha desde la que rige la designación."
+  },
+  "2574110-1": {
+   "fecha": "2026-11-12",
+   "modelo": "claude-haiku-5-5",
+   "nota": "",
+   "resumen": "Autoriza el viaje en comisión de servicios de Gladis Virginia Cachay Espino, Gerente General, y Luis Enrique Gallegos Huamaní, Jefe de la Oficina de Tecnologías de la Información del RENIEC, a la ciudad de México del 17 al 21 de noviembre de 2026, para participar en el IV Congreso Internacional de Tecnología Electoral (CITEC). Los organizadores cubren el transporte aéreo, traslados internos, hospedaje y alimentación para dos personas; el RENIEC asume viáticos de $385.00 por comisionado, total $770.00. Encarga a Marco Aurelio Lozano Fernández, Asesor de la Jefatura Nacional, las funciones de Gerente General del 17 al 21 de noviembre de 2026."
   }
  }
 }
