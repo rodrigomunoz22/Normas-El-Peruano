@@ -54,7 +54,8 @@ cuántas normas se revisaron, la hora real (Lima y UTC) y los errores no fatales
 
 Desde **Actions → Resumen de normas de El Peruano → Run workflow**:
 
-- `fecha` (dd/mm/aaaa, opcional), `modo` (completo o novedades) y `enviar`.
+- `fecha` (dd/mm/aaaa, opcional), `modo` (auto, completo o novedades) y `enviar`. El modo `auto`
+  es el que usan los disparadores: atiende las franjas del día aún pendientes y las deja anotadas.
 - Con `enviar` desmarcado no se envía nada y el correo queda como artefacto (`correo-de-prueba`).
 - Las pruebas con `fecha` distinta de hoy o sin envío **no** modifican el estado.
 

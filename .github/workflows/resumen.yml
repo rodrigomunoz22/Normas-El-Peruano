@@ -25,7 +25,7 @@ on:
       modo:
         description: 'Modo de ejecución'
         type: choice
-        options: [completo, novedades]
+        options: [auto, completo, novedades]   # auto: atiende las franjas pendientes del día
         default: completo
       enviar:
         description: 'Enviar el correo (si se desmarca, el HTML queda como artefacto)'
