@@ -533,6 +533,48 @@
    "modelo": "claude-haiku-5-5",
    "nota": "",
    "resumen": "La RM 425-2026-MINCETUR autoriza el viaje de Ygor Yvan Rojas Chu (Director de la Dirección de Coordinación de las Oficinas Regionales) y Aldo Miguel Palomino Veliz (profesional de la misma dirección) de PROMPERÚ a Manaos, Brasil, del 17 al 20 de noviembre de 2026, para participar en el evento 'Amazonian Flavors 2026'. El BID cubre pasajes aéreos y alojamiento; PROMPERÚ asume alimentación y traslados internos, con viáticos de US$ 185,00 x 3 días (US$ 555,00 cada uno), con cargo al Pliego 008. Informe y rendición de cuentas dentro de 15 días calendario tras el retorno."
+  },
+  "2575660-1": {
+   "fecha": "2026-11-18",
+   "modelo": "claude-haiku-5-5",
+   "nota": "Resumen basado en un texto parcial (la norma excede el límite configurado). El texto disponible no alcanza para un resumen completo.",
+   "resumen": "La Resolución Ministerial N° 1023-2026/MINSA, del Ministerio de Salud, según su sumilla, designa a un Director Ejecutivo de la Dirección de Fortalecimiento de Capacidades del Personal de la Salud. El texto recibido solo muestra esta norma en el sumario, sin su parte resolutiva, por lo que no permite identificar a la persona designada ni la fecha desde la que rige."
+  },
+  "2575701-1": {
+   "fecha": "2026-11-18",
+   "modelo": "claude-haiku-5-5",
+   "nota": "",
+   "resumen": "Autoriza el viaje en comisión de servicios de la Primera Secretaria en el Servicio Diplomático Lourdes Mochizuki Tamayo, Subdirectora de la UF Subdirección de Asuntos Multilaterales de la Dirección de Control de Drogas, a Washington D.C., Estados Unidos, del 15 al 20 de noviembre de 2026, para participar en el Octogésimo Período Ordinario de Sesiones de la CICAD. Pasajes aéreos clase económica USD 1,723.00; viáticos USD 440.00 por día, 3+1 días, total USD 1,760.00; gastos cubiertos por el pliego del Ministerio de Relaciones Exteriores."
+  },
+  "2575722-1": {
+   "fecha": "2026-11-18",
+   "modelo": "claude-haiku-5-5",
+   "nota": "",
+   "resumen": "Autoriza el viaje en comisión de servicios de la Primera Secretaria en el Servicio Diplomático Nataly Dayana Gonzales Guerrero, Subdirectora de la UF Subdirección de Asuntos de la OMC y Propiedad Intelectual, a Ginebra, Confederación Suiza, del 15 al 22 de noviembre de 2026, para el VI Examen de las Políticas Comerciales del Perú ante la OMC y reuniones conexas. Pasajes aéreos clase económica USD 2,078.00; viáticos USD 540.00 por día, 4+2 días, total USD 3,240.00; gastos cubiertos por el pliego del Ministerio de Relaciones Exteriores."
+  },
+  "2575809-1": {
+   "fecha": "2026-11-18",
+   "modelo": "claude-haiku-5-5",
+   "nota": "Resumen basado en un texto parcial (la norma excede el límite configurado). El texto disponible no alcanza para un resumen completo.",
+   "resumen": "El texto recibido corresponde al sumario de la edición del Diario Oficial El Peruano y no contiene la resolución ministerial N° 694-2026-MINEDU. Por ello no se puede identificar a la persona designada como Secretario Nacional de la Juventud, ni la fecha de vigencia."
+  },
+  "2575819-1": {
+   "fecha": "2026-11-18",
+   "modelo": "claude-haiku-5-5",
+   "nota": "",
+   "resumen": "Autoriza el viaje en comisión de servicios del Ministro Consejero en el Servicio Diplomático Miguel Anibal Fuentes Cervantes, Director de Asuntos Antárticos, a Santiago, República de Chile, del 17 al 19 de noviembre de 2026, para la IV Reunión del Diálogo Específico en Asuntos Antárticos entre Perú y Chile. Pasajes aéreos clase económica USD 1079.25; viáticos USD 370.00 por día, 1+1 días, total USD 740.00; gastos cubiertos por el pliego del Ministerio de Relaciones Exteriores."
+  },
+  "2575820-1": {
+   "fecha": "2026-11-18",
+   "modelo": "claude-haiku-5-5",
+   "nota": "Resumen basado en un texto parcial (la norma excede el límite configurado).",
+   "resumen": "Autoriza una Transferencia de Partidas en el Presupuesto del Sector Público para el Año Fiscal 2026 hasta por S/ 88 031 712,00 (Recursos Ordinarios, con cargo a la Reserva de Contingencia del MEF) a favor de diversos gobiernos locales, para financiar 41 inversiones en materia de transporte, agropecuaria y saneamiento. El detalle por gobierno local está en un anexo que no figura en el texto, y el texto recibido está cortado en el artículo 2."
+  },
+  "2575820-3": {
+   "fecha": "2026-11-18",
+   "modelo": "claude-haiku-5-5",
+   "nota": "Resumen basado en un texto parcial (la norma excede el límite configurado).",
+   "resumen": "Designa al señor Arturo Williams García Villacorta como Director del Consejo Directivo de la Caja de Pensiones Militar - Policial, quien lo preside, por encontrarse vacante el cargo. La resolución suprema N° 118-2026-DE está refrendada por los ministros de Defensa, del Interior y de Economía y Finanzas. El texto no indica una fecha específica desde la que rige la designación."
   }
  }
 }
