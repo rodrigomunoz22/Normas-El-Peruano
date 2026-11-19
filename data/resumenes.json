@@ -534,6 +534,30 @@
    "nota": "",
    "resumen": "La RM 425-2026-MINCETUR autoriza el viaje de Ygor Yvan Rojas Chu (Director de la Dirección de Coordinación de las Oficinas Regionales) y Aldo Miguel Palomino Veliz (profesional de la misma dirección) de PROMPERÚ a Manaos, Brasil, del 17 al 20 de noviembre de 2026, para participar en el evento 'Amazonian Flavors 2026'. El BID cubre pasajes aéreos y alojamiento; PROMPERÚ asume alimentación y traslados internos, con viáticos de US$ 185,00 x 3 días (US$ 555,00 cada uno), con cargo al Pliego 008. Informe y rendición de cuentas dentro de 15 días calendario tras el retorno."
   },
+  "2575384-1": {
+   "fecha": "2026-11-19",
+   "modelo": "claude-haiku-5-5",
+   "nota": "",
+   "resumen": "Da por terminada la designación de la señora Verónica Colque Machacca como Jefa del Órgano de Control Institucional de la Municipalidad Provincial de Melgar, por culminación del periodo de designación. La acción de personal tiene efectividad desde el día siguiente de la publicación en El Peruano, sin perjuicio del procedimiento de entrega y recepción de cargo. No se designa a sucesor en el texto."
+  },
+  "2575387-1": {
+   "fecha": "2026-11-19",
+   "modelo": "claude-haiku-5-5",
+   "nota": "",
+   "resumen": "Da por terminada la designación de la señora Rosa Erika Cabrera Bejarano como Jefa del Órgano de Control Institucional del Organismo de Formalización de la Propiedad Informal - COFOPRI, y designa al señor Félix Ricardo Urbina Cueva en el mismo cargo. Las acciones de personal rigen desde el día siguiente de la publicación en El Peruano, sin perjuicio de la entrega y recepción de cargo."
+  },
+  "2575389-1": {
+   "fecha": "2026-11-19",
+   "modelo": "claude-haiku-5-5",
+   "nota": "",
+   "resumen": "Da por terminada la designación de la señora Susan Silvia Velarde Cabrera como Jefa del Órgano de Control Institucional del Instituto Nacional de Enfermedades Neoplásicas, por razones de necesidad del servicio o interés institucional. La acción de personal tiene efectividad desde el día siguiente de la publicación en El Peruano. El texto no designa a un sucesor."
+  },
+  "2575396-1": {
+   "fecha": "2026-11-19",
+   "modelo": "claude-haiku-5-5",
+   "nota": "",
+   "resumen": "Autoriza el viaje del señor Hugo Efrain Viladegut Orosco, Jefe de Supervisión de Seguros de la Intendencia de Supervisión de Seguros B de la Superintendencia Adjunta de Seguros de la SBS, a Madrid, Reino de España, del 21 al 26 de noviembre de 2026, para participar en el Colegio de Supervisores del Grupo MAPFRE. Los gastos se cubren con cargo al Presupuesto 2026: pasaje aéreo US$ 1 851,04 y viáticos US$ 2 160,00. Debe presentar un informe en 10 días hábiles tras su reincorporación."
+  },
   "2575660-1": {
    "fecha": "2026-11-18",
    "modelo": "claude-haiku-5-5",
@@ -575,6 +599,48 @@
    "modelo": "claude-haiku-5-5",
    "nota": "Resumen basado en un texto parcial (la norma excede el límite configurado).",
    "resumen": "Designa al señor Arturo Williams García Villacorta como Director del Consejo Directivo de la Caja de Pensiones Militar - Policial, quien lo preside, por encontrarse vacante el cargo. La resolución suprema N° 118-2026-DE está refrendada por los ministros de Defensa, del Interior y de Economía y Finanzas. El texto no indica una fecha específica desde la que rige la designación."
+  },
+  "2576025-1": {
+   "fecha": "2026-11-19",
+   "modelo": "claude-haiku-5-5",
+   "nota": "",
+   "resumen": "Designa al señor MARLON ALVARADO HOFFMEISTER como Ejecutivo de la Unidad de Planeamiento, Modernización y Presupuesto del Programa Nacional de Empleo “Jóvenes Productivos” del Ministerio de Trabajo y Promoción del Empleo, según la Resolución Viceministerial N° 000019-2026-MTPE/3. No indica fecha de inicio de vigencia."
+  },
+  "2576030-1": {
+   "fecha": "2026-11-19",
+   "modelo": "claude-haiku-5-5",
+   "nota": "",
+   "resumen": "Resolución Ministerial N° 358-2026-TR designa a la señora Melissa Milagros Chuquillanqui Sernaque en el cargo de Asesora del Despacho Viceministerial de Trabajo I del Ministerio de Trabajo y Promoción del Empleo. El texto no indica una fecha de inicio de la designación."
+  },
+  "2576274-1": {
+   "fecha": "2026-11-19",
+   "modelo": "claude-haiku-5-5",
+   "nota": "",
+   "resumen": "Resolución Ministerial N° D000294-2026-MIDIS designa al señor Paul Anderson Soplin Alvarado en el cargo de Director de la Dirección de Innovación Social de la Dirección General de Seguimiento, Evaluación e Innovación Social del Ministerio de Desarrollo e Inclusión Social. El texto no indica una fecha de inicio de la designación."
+  },
+  "2576275-1": {
+   "fecha": "2026-11-19",
+   "modelo": "claude-haiku-5-5",
+   "nota": "",
+   "resumen": "Resolución Ministerial N° 00408-2026-PRODUCE designa al señor Jose Andres Villena Petrosino en el puesto de Jefe General del Consejo de Apelación de Sanciones del Ministerio de la Producción. Se le exige presentar su Declaración Jurada de Ingresos, Bienes y Rentas y su Declaración Jurada de Intereses. El texto no indica una fecha de inicio de la designación."
+  },
+  "2576279-1": {
+   "fecha": "2026-11-19",
+   "modelo": "claude-haiku-5-5",
+   "nota": "",
+   "resumen": "Resolución Ministerial N° 699-2026-MINEDU designa al señor Jorge Moises Padilla Ramon en el cargo de Director de la Dirección de Educación Secundaria de la Dirección General de Educación Básica Regular, del Ministerio de Educación. El texto no indica una fecha de inicio de la designación."
+  },
+  "2576288-1": {
+   "fecha": "2026-11-19",
+   "modelo": "claude-haiku-5-5",
+   "nota": "",
+   "resumen": "Decreto Supremo N° 259-2026-EF autoriza una Transferencia de Partidas en el Año Fiscal 2026 hasta por S/ 13 786 054,00 (trece millones setecientos ochenta y seis mil cincuenta y cuatro y 00/100 soles), con cargo al presupuesto institucional del Ministerio de Salud, fuente Recursos Ordinarios, a favor de la Municipalidad Distrital de Nepeña. Los fondos financian la IRI con Código Único 2516887 para la reconstrucción de los servicios de salud del Centro de Salud San Jacinto, en el marco de la Tercera Disposición Complementaria Final de la Ley N° 32744."
+  },
+  "2576288-2": {
+   "fecha": "2026-11-19",
+   "modelo": "claude-haiku-5-5",
+   "nota": "",
+   "resumen": "Decreto Supremo N° 260-2026-EF autoriza una Transferencia de Partidas en el Año Fiscal 2026 hasta por S/ 4 998 035,00 (cuatro millones novecientos noventa y ocho mil treinta y cinco y 00/100 soles), fuente Recursos Ordinarios, con cargo al Ministerio de Energía y Minas y a favor del Instituto Peruano de Energía Nuclear. Los fondos financian acciones de producción de radioisótopos y radiofármacos, seguridad radiológica y fortalecimiento de laboratorios, conforme al artículo 18 de la Ley N° 32513."
   }
  }
 }
