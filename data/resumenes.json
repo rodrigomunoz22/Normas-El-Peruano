@@ -558,6 +558,12 @@
    "nota": "",
    "resumen": "Autoriza el viaje del señor Hugo Efrain Viladegut Orosco, Jefe de Supervisión de Seguros de la Intendencia de Supervisión de Seguros B de la Superintendencia Adjunta de Seguros de la SBS, a Madrid, Reino de España, del 21 al 26 de noviembre de 2026, para participar en el Colegio de Supervisores del Grupo MAPFRE. Los gastos se cubren con cargo al Presupuesto 2026: pasaje aéreo US$ 1 851,04 y viáticos US$ 2 160,00. Debe presentar un informe en 10 días hábiles tras su reincorporación."
   },
+  "2575399-1": {
+   "fecha": "2026-11-20",
+   "modelo": "claude-haiku-5-5",
+   "nota": "",
+   "resumen": "La Resolución SBS N° 02739-2026 autoriza el viaje a Brasilia, Brasil, del 24 al 28 de noviembre de 2026, de Jorge Dámaso Mogrovejo González, Superintendente Adjunto de Banca y Microfinanzas (Presidente de la Junta Directiva de ASBA), y de Wendy Maribel Okada Nishikawa, Jefe de Metodologías de Supervisión y Estrategia Financiera de la Superintendencia Adjunta de Banca y Microfinanzas (Presidenta del Comité de Capacitación y Cooperación Técnica de ASBA), para participar en eventos de ASBA. Pasajes aéreos US$ 2 062,18 y viáticos US$ 3 700,00, con cargo al Presupuesto 2026. No otorga exoneración de impuestos de Aduana."
+  },
   "2575660-1": {
    "fecha": "2026-11-18",
    "modelo": "claude-haiku-5-5",
@@ -624,6 +630,12 @@
    "nota": "",
    "resumen": "Resolución Ministerial N° 00408-2026-PRODUCE designa al señor Jose Andres Villena Petrosino en el puesto de Jefe General del Consejo de Apelación de Sanciones del Ministerio de la Producción. Se le exige presentar su Declaración Jurada de Ingresos, Bienes y Rentas y su Declaración Jurada de Intereses. El texto no indica una fecha de inicio de la designación."
   },
+  "2576276-1": {
+   "fecha": "2026-11-20",
+   "modelo": "claude-haiku-5-5",
+   "nota": "",
+   "resumen": "Designa a José Augusto Chirinos Cubas (abogado), Andrés Omar Cavero Prado (economista) y Fredy San Román Luna (ingeniero) como miembros del Tribunal en Asuntos Administrativos del Ositrán, por un período de cinco años contado desde el día siguiente de la publicación en El Peruano, como resultado del concurso público CPMVTAA N° 001-2026-OSITRAN."
+  },
   "2576279-1": {
    "fecha": "2026-11-19",
    "modelo": "claude-haiku-5-5",
@@ -641,6 +653,108 @@
    "modelo": "claude-haiku-5-5",
    "nota": "",
    "resumen": "Decreto Supremo N° 260-2026-EF autoriza una Transferencia de Partidas en el Año Fiscal 2026 hasta por S/ 4 998 035,00 (cuatro millones novecientos noventa y ocho mil treinta y cinco y 00/100 soles), fuente Recursos Ordinarios, con cargo al Ministerio de Energía y Minas y a favor del Instituto Peruano de Energía Nuclear. Los fondos financian acciones de producción de radioisótopos y radiofármacos, seguridad radiológica y fortalecimiento de laboratorios, conforme al artículo 18 de la Ley N° 32513."
+  },
+  "2576359-1": {
+   "fecha": "2026-11-20",
+   "modelo": "claude-haiku-5-5",
+   "nota": "",
+   "resumen": "Acepta la renuncia de la señora BILMIA VENEROS URBINA al cargo de Vicepresidenta de Investigación de la Comisión Organizadora de la Universidad Nacional de Artes de Trujillo. Encarga al señor JUAN AMARO VILLACORTA VASQUEZ, Vicepresidente Académico, el cargo de Vicepresidente de Investigación, en adición a sus funciones, hasta designar al titular. Dispone que el Presidente de la Comisión remita al MINEDU copia del informe de entrega de cargo en un plazo máximo de 30 días calendario."
+  },
+  "2576360-1": {
+   "fecha": "2026-11-20",
+   "modelo": "claude-haiku-5-5",
+   "nota": "",
+   "resumen": "Acepta, al 24 de octubre de 2026, la renuncia irrevocable de la señora MILAGRO ROSARIO HENRIQUEZ SUAREZ al cargo de Presidenta de la Comisión Organizadora de la Universidad Nacional Autónoma Altoandina de Tarma (UNAAT). Encarga al señor ALBERTO ALMIRON EHUI, Vicepresidente Académico de la Comisión, el cargo de Presidente, en adición a sus funciones, en tanto se designe al titular. Dispone que la Comisión remita al MINEDU, en 30 días calendario, copia del Informe de Transferencia de Gestión."
+  },
+  "2576364-1": {
+   "fecha": "2026-11-20",
+   "modelo": "claude-haiku-5-5",
+   "nota": "",
+   "resumen": "Da por concluidas las designaciones de Sergio Hermes Alván Cabanillas (representante titular) y César Eduardo Díaz Díaz (representante alterno) de la Dirección Ejecutiva de la APCI ante la CONTRALAFT. Designa como representantes a El/la Director/a de la Dirección de Seguimiento y Fiscalización (titular) y El/la Director/a de la Dirección de Gestión y Negociación de Cooperación Internacional (alterno); el texto no identifica por nombre a las personas designadas."
+  },
+  "2576367-1": {
+   "fecha": "2026-11-20",
+   "modelo": "claude-haiku-5-5",
+   "nota": "",
+   "resumen": "Autoriza, en comisión de servicios, el viaje a la Ciudad de México, Estados Unidos Mexicanos, del 30 de noviembre al 4 de diciembre de 2026, de Jorge Félix Rubio Correa (Embajador, Director General para Asuntos Económicos) y Eduardo Adolfo Banda Necochea (Ministro Consejero, Director de Integración), para asistir a la Reunión de Coordinadores Nacionales de la Alianza del Pacífico y actividades conexas. Los gastos los cubre el pliego del Ministerio de Relaciones Exteriores: pasajes aéreos clase económica de USD 1,923.46 por persona y viáticos de USD 440.00 por día, por 4 + 1 días, con total de viáticos de USD 200.00 por persona según el cuadro del texto."
+  },
+  "2576439-1": {
+   "fecha": "2026-11-20",
+   "modelo": "claude-haiku-5-5",
+   "nota": "",
+   "resumen": "Autoriza el viaje en comisión de servicios de Rosario Dayana Cayo Calderón, Especialista en Procesos de APP II de la Sub Dirección de Servicios a los Proyectos de la Dirección de Portafolio de Proyectos de PROINVERSIÓN, a Cartagena de Indias, Colombia, del 24 al 28 de noviembre de 2026, para participar en el XXIII Congreso Nacional de Infraestructura (25 al 27 de noviembre de 2026). Pasajes aéreos: US$ 1 409.82; viáticos (3+1): US$ 1 480.00, con cargo al presupuesto de PROINVERSIÓN. Debe presentar un informe en 15 días calendario tras el viaje."
+  },
+  "2576447-1": {
+   "fecha": "2026-11-20",
+   "modelo": "claude-haiku-5-5",
+   "nota": "",
+   "resumen": "Aprueba las disposiciones operativas especiales para las reprogramaciones extraordinarias de créditos garantizados por IMPULSO MYPERU previstas en los artículos 5, 6 y 7 del Decreto de Urgencia N° 015-2026, aplicables a las ESF y COOPAC y a los beneficiarios MYPE en departamentos declarados en Estado de Emergencia por el FEN. Fija el plazo de acogimiento hasta el 30 de abril de 2027, ampliaciones de plazo de hasta 9 meses (12 meses para sectores agropecuario, pesquero o acuícola), tasa y comisión de COFIDE, y el rol de COFIDE en la garantía. El anexo con cuadros CIIU no está disponible en el texto."
+  },
+  "2576527-1": {
+   "fecha": "2026-11-20",
+   "modelo": "claude-haiku-5-5",
+   "nota": "",
+   "resumen": "Aprueba las disposiciones operativas especiales para implementar las garantías excepcionales con cargo al Fondo CRECER previstas en el artículo 3 del Decreto de Urgencia N° 015-2026, dirigidas a COFIDE, Empresas del Sistema Financiero y COOPAC, para créditos y reprogramaciones a micro y pequeñas empresas (MYPE). Regula asignación de líneas, elegibilidad, tasas, plazos de acogimiento hasta el 30 de abril de 2027 y publicación. El anexo con las actividades CIIU no está disponible en el texto."
+  },
+  "2576612-1": {
+   "fecha": "2026-11-20",
+   "modelo": "claude-haiku-5-5",
+   "nota": "",
+   "resumen": "Designa al señor JOSE TITO PEÑALOZA VARGAS en el cargo de confianza de Jefe de Unidad de Apoyo de la Unidad de Administración del Programa Integral Nacional para el Bienestar Familiar - INABIF del Ministerio de la Mujer y Poblaciones Vulnerables, por encontrarse vacante el cargo."
+  },
+  "2576615-1": {
+   "fecha": "2026-11-20",
+   "modelo": "claude-haiku-5-5",
+   "nota": "",
+   "resumen": "Designa al señor RODOLFO ENRIQUE PAZ PEÑA en el cargo de confianza de Jefe de Subunidad de Apoyo de la Subunidad de Abastecimiento de la Unidad de Administración del Programa Integral Nacional para el Bienestar Familiar – INABIF del Ministerio de la Mujer y Poblaciones Vulnerables, por encontrarse vacante el cargo."
+  },
+  "2576646-1": {
+   "fecha": "2026-11-20",
+   "modelo": "claude-haiku-5-5",
+   "nota": "",
+   "resumen": "Autoriza el viaje de Raquel Mercedes Sotomayor Parian, servidora de la Sub Dirección de Ciencia, Tecnología y Talentos del CONCYTEC, a Montevideo, República Oriental del Uruguay, del 21 al 25 de noviembre de 2026, para participar en la 12.ª Reunión del Consejo Directivo del CABBIO. Los pasajes aéreos son US$ 1,557.49 y los viáticos US$ 370.00 por día, 2+1 días, con total de viáticos US$ 1,110.00, todos con cargo al presupuesto institucional del CONCYTEC."
+  },
+  "2576667-1": {
+   "fecha": "2026-11-20",
+   "modelo": "claude-haiku-5-5",
+   "nota": "",
+   "resumen": "Designa a la señora VIRGINIA EMILIA LEIVA ALE en el cargo de Jefa de Gabinete de Asesores del Despacho Ministerial del Ministerio de Desarrollo e Inclusión Social (MIDIS), por encontrarse vacante el cargo. El texto no indica la fecha desde la que rige la designación."
+  },
+  "2576697-1": {
+   "fecha": "2026-11-20",
+   "modelo": "claude-haiku-5-5",
+   "nota": "",
+   "resumen": "Prorroga por 60 días calendario, a partir del 22 de noviembre de 2026, el Estado de Emergencia en doce distritos y ocho centros poblados detallados en el Anexo 1 de Ayacucho, Huancavelica, Cusco y Junín, y en las franjas territoriales \"Eje Energético del Gas de Camisea\" y \"Corredor Operacional Fluvial - Terrestre del Ene\". Las Fuerzas Armadas mantienen el control del orden interno con apoyo de la Policía Nacional del Perú, frente al grupo hostil Sendero Luminoso y otras amenazas conexas."
+  },
+  "2576697-2": {
+   "fecha": "2026-11-20",
+   "modelo": "claude-haiku-5-5",
+   "nota": "",
+   "resumen": "Prorroga por 60 días calendario, a partir del 24 de noviembre de 2026, el Estado de Emergencia declarado por los Decretos Supremos N° 045-2026-PCM (provincia de Zarumilla) y N° 080-2026-PCM (provincia de Tumbes), departamento de Tumbes, para hacer frente a la criminalidad y otras situaciones de violencia. La Policía Nacional del Perú mantiene el control del orden interno con apoyo de las Fuerzas Armadas, y se restringen derechos constitucionales de inviolabilidad del domicilio, libertad de tránsito, reunión y seguridad personal. Además, modifica el artículo 6 del DS 080-2026-PCM sobre la conformación de comandos y comités."
+  },
+  "2576697-3": {
+   "fecha": "2026-11-20",
+   "modelo": "claude-haiku-5-5",
+   "nota": "",
+   "resumen": "Autoriza una Transferencia de Partidas en el Presupuesto del Sector Público para el Año Fiscal 2026 por hasta S/ 6 100 000,00 de la Reserva de Contingencia del Ministerio de Economía y Finanzas a favor de la Municipalidad Distrital de Velille, para la inversión de mejoramiento y ampliación de los servicios de salud del Centro de Salud del distrito de Velille, provincia de Chumbivilcas, Cusco (CUI N° 2369263), con fuente Recursos Ordinarios."
+  },
+  "2576697-4": {
+   "fecha": "2026-11-20",
+   "modelo": "claude-haiku-5-5",
+   "nota": "",
+   "resumen": "Aprueba una operación de endeudamiento interno hasta por S/ 5 700 000 000,00 mediante la emisión de bonos soberanos en soles, destinada a financiar el Segundo Tramo de un proyecto de inversión del Ministerio de Defensa a través de la Fuerza Aérea del Perú. Establece las características de los bonos, autoriza a la Directora General del Tesoro Público a suscribir documentos y dispone que el servicio de deuda sea atendido por el MEF."
+  },
+  "2576697-6": {
+   "fecha": "2026-11-20",
+   "modelo": "claude-haiku-5-5",
+   "nota": "",
+   "resumen": "Acepta la renuncia del señor ALEJANDRO AFUSO HIGA al cargo de Viceministro de Prestaciones Sociales del Ministerio de Desarrollo e Inclusión Social (MIDIS), designado por Resolución Suprema N° 016-2026-MIDIS, y le agradece los servicios prestados. El texto no indica la fecha desde la que rige la aceptación."
+  },
+  "2576697-7": {
+   "fecha": "2026-11-20",
+   "modelo": "claude-haiku-5-5",
+   "nota": "",
+   "resumen": "Designa al señor WALTER EFRAIN BORJA ROJA S en el cargo de Viceministro de Prestaciones Sociales del Ministerio de Desarrollo e Inclusión Social (MIDIS), por encontrarse vacante el cargo. El texto no indica la fecha desde la que rige la designación."
   }
  }
 }
