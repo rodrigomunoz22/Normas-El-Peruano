@@ -1,17 +1,5 @@
 {
  "resumenes": {
-  "2571881-1": {
-   "fecha": "2026-11-11",
-   "modelo": "claude-haiku-5-5",
-   "nota": "",
-   "resumen": "Autoriza el viaje de Oscar Antonio Basso Winffel, Gerente de Riesgos de la SBS, a Washington D.C., Estados Unidos, del 12 al 16 de enero de 2027, para participar en el evento IMF Annual Cybersecurity Workshop del Fondo Monetario Internacional. Pasajes aéreos US$ 1,523.24 y viáticos US$ 1,760.00, con cargo al Presupuesto 2026 de la SBS. Debe presentar un informe detallado en 10 días hábiles tras su reincorporación; no otorga exoneración de impuestos."
-  },
-  "2572309-1": {
-   "fecha": "2026-11-11",
-   "modelo": "claude-haiku-5-5",
-   "nota": "",
-   "resumen": "Autoriza el viaje en comisión de servicios de Bernardo Juan Pachas Serrano, Jefe (i) de la ONPE, a Santo Domingo, República Dominicana, del 11 al 14 de noviembre de 2026, para participar en la XIX Reunión Interamericana de Autoridades Electorales (RAE). Pasajes aéreos Lima-Santo Domingo-Lima US$ 726.76; viáticos parciales (alimentación) S/ 2,960; seguro de viaje US$ 28.00; los gastos son cubiertos por la ONPE. Debe presentar un informe en 15 días calendario tras el viaje y no hay exoneración de impuestos."
-  },
   "2572480-1": {
    "fecha": "2026-11-13",
    "modelo": "claude-haiku-5-5",
@@ -24,131 +12,11 @@
    "nota": "",
    "resumen": "Autoriza el viaje de Lucas Cisneros De la Peña, Analista de Investigación Económica II del Departamento de Investigación Económica de la Gerencia de Estudios Económicos de la SBS, a la ciudad de Hong Kong, República Popular China, del 14 al 20 de noviembre de 2026, para presentar el documento de trabajo Regulatory Divergence and Bank Capital Flows en el Workshop on Banking and Banking Regulation (17 y 18 de noviembre). Los gastos se cargan al Presupuesto 2026 de la SBS: pasaje aéreo US$ 1 943,74 y viáticos US$ 2 000,00. Debe presentar un informe en 10 días hábiles tras su reincorporación."
   },
-  "2572984-1": {
-   "fecha": "2026-11-11",
-   "modelo": "claude-haiku-5-5",
-   "nota": "",
-   "resumen": "Autoriza el viaje en comisión de servicios de María del Pilar Caballero Sara, Directora de Proyectos de PROINVERSIÓN, a Montreal, Canadá, del 11 al 14 de noviembre de 2026, para participar en la misión técnica complementaria a la Conferencia de Infraestructura de Canadá (CIC 2026). Los gastos se cubren con cargo al presupuesto de PROINVERSIÓN: pasajes aéreos US$ 1 713.90 y viáticos (2+1) US$ 1 320.00. Debe presentar un informe en 15 días calendario posteriores al viaje; no otorga exoneración de impuestos de aduana."
-  },
-  "2573013-1": {
-   "fecha": "2026-11-11",
-   "modelo": "claude-haiku-5-5",
-   "nota": "",
-   "resumen": "Autoriza el viaje en comisión de servicios de Iván Alejandro Cafferata de la Barra, inspector de la Dirección General de Aeronáutica Civil del MTC, a Miami, Estados Unidos de América, del 12 al 13 de noviembre de 2026, por interés institucional, para el chequeo en vuelo por renovación IDE T/C en equipo B-767 a personal de LATAM Airlines Perú S.A. Los gastos, incluidos viáticos, son cubiertos por LATAM Airlines Perú S.A. mediante recibos de acotación 0014523 y 0014524; el cuadro anexo indica viáticos de US$ 880.00 y el texto no indica monto de pasajes."
-  },
-  "2573022-1": {
-   "fecha": "2026-11-11",
-   "modelo": "claude-haiku-5-5",
-   "nota": "",
-   "resumen": "Autoriza el viaje en comisión de servicios del inspector LUIS GUILLERMO SIPAN HERNANDEZ, de la Dirección General de Aeronáutica Civil del MTC, a la ciudad de Concord, Estado de Carolina del Norte, Estados Unidos de América, del 12 al 15 de noviembre de 2026, para realizar un chequeo de verificación de competencia de piloto y bianual de instructor de vuelo en simulador en el equipo B-200 al personal aeronáutico de la empresa AIR MAJORO SOCIEDAD ANONIMA. Los gastos, incluidos los viáticos de US$ 1,320.00, son cubiertos por la empresa solicitante mediante los recibos de acotación 0014143 y 0014144. El texto no indica monto de pasajes."
-  },
-  "2573097-1": {
-   "fecha": "2026-11-11",
-   "modelo": "claude-haiku-5-5",
-   "nota": "",
-   "resumen": "Designa al señor CARLOS ERICK ZEGARRA PRESSER en el cargo de Asesor II del Despacho Ministerial del Ministerio de Educación, por encontrarse vacante. El texto no indica la fecha desde la que rige la designación."
-  },
-  "2573216-1": {
-   "fecha": "2026-11-11",
-   "modelo": "claude-haiku-5-5",
-   "nota": "",
-   "resumen": "Modifica el artículo 1 de la Resolución N° 001-2025-PCM/SGRD, que aprueba la ejecución de simulacros y simulaciones 2025-2027, en lo referido al año 2026: la Simulación Regional Multipeligro (nivel regional y local, GG.RR. y GG.LL.) pasa a figurar con fecha miércoles 01 de abril de 2026, de 08:00 a 14:00, y se mantiene la Simulación Nacional ante Desastre de Gran Magnitud. Dispone la publicación de la resolución en la Plataforma Digital Única del Estado Peruano, en las sedes digitales de la PCM e INDECI y en El Peruano."
-  },
-  "2573253-1": {
-   "fecha": "2026-11-11",
-   "modelo": "claude-haiku-5-5",
-   "nota": "",
-   "resumen": "Autoriza una Transferencia de Partidas en el Año Fiscal 2026 por hasta S/ 289 795,00 (Recursos Ordinarios), de la PCM (Secretaría General y Planeamiento y Presupuesto) a favor de la Secretaría de Seguridad y Defensa Nacional (SEDENA), para financiar el inicio de sus operaciones en noviembre y diciembre de 2026: S/ 157 915,00 para Personal y Obligaciones Sociales y S/ 131 880,00 para Bienes y Servicios. Los recursos no pueden destinarse a fines distintos, bajo responsabilidad."
-  },
-  "2573253-2": {
-   "fecha": "2026-11-11",
-   "modelo": "claude-haiku-5-5",
-   "nota": "",
-   "resumen": "Aprueba la nueva escala de ingresos mensuales de los servidores del régimen del Decreto Legislativo N° 728 del Ministerio del Ambiente (MINAM), con montos entre S/ 3 200,00 (Auxiliar 1) y S/ 9 100,00 (Profesional 3). Solo se reconocen esos montos, una gratificación por Fiestas Patrias, una por Navidad y una bonificación por escolaridad, y se prohíbe cualquier otro ingreso adicional sin respetar la normativa, con excepciones. Se financia con el presupuesto institucional del MINAM y deroga el Decreto Supremo N° 298-2012-EF."
-  },
-  "2573254-1": {
-   "fecha": "2026-11-11",
-   "modelo": "claude-haiku-5-5",
-   "nota": "",
-   "resumen": "Designa al señor YERKO MARIO JARA SCHENONE como Jefe de Seguridad y Defensa Nacional de la Oficina de Seguridad y Defensa Nacional de la Secretaría General del Ministerio de la Producción, puesto vacante. Dispone que el designado presente su Declaración Jurada de Ingresos, Bienes y Rentas y su Declaración Jurada de Intereses. El texto no indica la fecha desde la que rige la designación."
-  },
-  "2573288-1": {
-   "fecha": "2026-11-11",
-   "modelo": "claude-haiku-5-5",
-   "nota": "",
-   "resumen": "Designa a Ray Willy Ticse Aguirre en el cargo de confianza de Director Ejecutivo (CAP-P Nº 851, Nivel F-4) de la Dirección de Prevención y Control de Enfermedades No Transmisibles, Raras y Huérfanas de la Dirección General de Intervenciones Estratégicas en Salud Pública del Ministerio de Salud. El texto no indica la fecha desde la que rige la designación."
-  },
-  "2573332-1": {
-   "fecha": "2026-11-11",
-   "modelo": "claude-haiku-5-5",
-   "nota": "",
-   "resumen": "Autoriza el viaje de José Luis Castillo Mezarina, Director General de la Dirección General de Negociaciones Comerciales Internacionales del MINCETUR, a Shenzhen, República Popular China, del 14 al 21 de noviembre de 2026, para participar en reuniones bilaterales en el marco del APEC. Pasajes aéreos clase económica US$ 2 844,95; viáticos de US$ 500,00 por día x 4, total US$ 2 000,00; cargo al Pliego 035. Debe presentar informe y rendición de cuentas en 15 días tras su retorno; no libera de impuestos."
-  },
-  "2573341-1": {
-   "fecha": "2026-11-11",
-   "modelo": "claude-haiku-5-5",
-   "nota": "",
-   "resumen": "Autoriza el viaje en comisión de servicios de los químico farmacéuticos José Daniel Guerra Camargo y Oscar Roberto Rejas Medina de DIGEMID a Shaoxing y Zibo, República Popular China, del 13 de noviembre al 10 de diciembre de 2026, para inspeccionar los laboratorios ZHEJIANG ZHONGTONG PHARMACEUTICAL y SHANDONG QIDU PHARMACEUTICAL, solicitados por DROGUERIA INVERSIONES JPS S.A.C. y DROGUERIA DANY S.A.C. para certificación de Buenas Prácticas de Manufactura. Pasaje US$ 10,611.74 (US$ 5,305.87 por persona) y viáticos US$ 25,000.00 (US$ 12,500.00 por persona); total US$ 35,611.74, con cargo al presupuesto del Ministerio de Salud. Informe en 15 días tras el retorno."
-  },
-  "2573354-1": {
-   "fecha": "2026-11-11",
-   "modelo": "claude-haiku-5-5",
-   "nota": "",
-   "resumen": "Aprueba el Convenio de Pago que implementa el artículo 14 de la Ley N° 32515 (Ley de Endeudamiento del Sector Público para el Año Fiscal 2026), a celebrarse entre el Ministerio de Economía y Finanzas, a través de la Dirección General del Tesoro Público, y el Banco de Materiales S.A.C. en Liquidación, para el registro y pago del capital de los créditos de la Ley N° 29231. Autoriza a la Directora General de la Dirección General del Tesoro Público a suscribirlo y a firmar los documentos necesarios para su implementación."
-  },
-  "2573381-1": {
-   "fecha": "2026-11-11",
-   "modelo": "claude-haiku-5-5",
-   "nota": "",
-   "resumen": "Designa a Jessica Diana Gómez Coronel en el cargo de confianza de Jefa de Equipo II (CAP-P Nº 852, Nivel F-3) de la Dirección de Prevención y Control de Enfermedades No Transmisibles, Raras y Huérfanas de la Dirección General de Intervenciones Estratégicas en Salud Pública del Ministerio de Salud. El texto no indica la fecha desde la que rige la designación."
-  },
-  "2573518-1": {
-   "fecha": "2026-11-11",
-   "modelo": "claude-haiku-5-5",
-   "nota": "",
-   "resumen": "Designa al señor JORGE LUIS HUAITALLA ROSADO en el cargo de Director Adjunto (CAP - P Nº 002) de la Dirección del Hospital de Huaycán del Ministerio de Salud, cargo de confianza. El texto no indica la fecha desde la que rige la designación."
-  },
   "2573536-1": {
    "fecha": "2026-11-12",
    "modelo": "claude-haiku-5-5",
    "nota": "",
    "resumen": "Encarga al señor Janes Edgardo Rodríguez López, Vicecontralor de Control Gubernamental, las funciones del cargo de Contralor General de la República del 10 al 14 de diciembre de 2026, por el uso del descanso vacacional del Titular. Incluye las acciones de supervisión de los órganos con dependencia directa del Despacho del Contralor durante ese período."
-  },
-  "2573551-1": {
-   "fecha": "2026-11-11",
-   "modelo": "claude-haiku-5-5",
-   "nota": "",
-   "resumen": "Autoriza el viaje en comisión de servicios de José Alfredo Pérez Duharte, Director de la Oficina General de Cooperación y Relaciones Internacionales del JNE, a Santo Domingo, República Dominicana, del 11 al 14 de noviembre de 2026, con licencia con goce de haber, para participar en la XIX Reunión Interamericana de Autoridades Electorales (11 al 13 de noviembre de 2026). La entidad cubre seguro de viaje internacional por S/. 244.80 y pasajes aéreos por S/. 5,310.64; el texto indica que los organizadores cubren hospedaje, traslados internos y alimentación, y no consigna monto de viáticos."
-  },
-  "2573660-1": {
-   "fecha": "2026-11-11",
-   "modelo": "claude-haiku-5-5",
-   "nota": "",
-   "resumen": "Designa al señor ALDO FABIÁN PRIETO SANTOS en el puesto de Asesor de la Gerencia General II - CO20010 de la Sunass, en condición de servidor de confianza, bajo el régimen del Decreto Legislativo N° 1057 mediante contrato administrativo de servicios. El texto no indica una fecha de inicio de vigencia."
-  },
-  "2573662-1": {
-   "fecha": "2026-11-11",
-   "modelo": "claude-haiku-5-5",
-   "nota": "",
-   "resumen": "Fe de erratas de la Resolución Jefatural N° 000053-2026-OEDI/JEF, publicada el 3 de noviembre de 2026. Corrige el nombre del señor Víctor Eliseo Jenner Victoria Menacho, que pasa a ser Víctor Eliseo Jenner Luna Victoria Menacho, en los VISTOS, en el Artículo 1 (aceptación de renuncia al cargo de Asesor de Alta Dirección del OEDI, con último día de labores el 30 de octubre de 2026) y en el Artículo 3 (notificación)."
-  },
-  "2573668-1": {
-   "fecha": "2026-11-11",
-   "modelo": "claude-haiku-5-5",
-   "nota": "",
-   "resumen": "Designa a la señora MARÍA DEL ROSARIO VILLAFUERTE BRAVO en el cargo de Directora General de Políticas para la Promoción de la Formalización Laboral e Inspección del Trabajo, de la Dirección General de Políticas para la Promoción de la Formalización Laboral e Inspección del Trabajo del Ministerio de Trabajo y Promoción del Empleo, por encontrarse vacante el cargo. El texto no indica una fecha de inicio de vigencia."
-  },
-  "2573674-1": {
-   "fecha": "2026-11-11",
-   "modelo": "claude-haiku-5-5",
-   "nota": "",
-   "resumen": "Convoca a la Segunda Elección en el proceso de Elecciones Regionales 2026 para elegir gobernadores y vicegobernadores en las circunscripciones donde ninguna fórmula alcanzó el 30% de los votos válidos en la elección del 4 de octubre de 2026, fijada para el domingo 6 de diciembre de 2026. El texto indica que son quince (15) regiones, según el Oficio N° 528-2026-P/JNE, pero no las enumera en la parte resolutiva."
-  },
-  "2573715-1": {
-   "fecha": "2026-11-11",
-   "modelo": "claude-haiku-5-5",
-   "nota": "",
-   "resumen": "Designa al señor WALTER LIDIO GUILLEN ROJAS en el puesto de Director General de Infraestructura Hidráulica y Riego de la Dirección General de Infraestructura Hidráulica y Riego del Despacho Viceministerial de Desarrollo de Agricultura Familiar e Infraestructura Agraria y Riego del Ministerio de Desarrollo Agrario y Riego (MIDAGRI), puesto que se encontraba vacante. La resolución no indica la fecha desde la que rige la designación."
   },
   "2573864-1": {
    "fecha": "2026-11-12",
@@ -774,6 +642,18 @@
    "nota": "",
    "resumen": "Autoriza el viaje al exterior, en misión de estudios, de personal titular y suplente de la Fuerza Aérea del Perú a Miami, Florida, Estados Unidos, para un servicio de entrenamiento recurrente en simulador de vuelo del Boeing B-737-500/800, del 23 de noviembre al 4 de diciembre de 2026, con salida el 22 de noviembre y retorno el 5 de diciembre de 2026. El texto indica que el personal se detalla en un Anexo que no figura en el texto recibido. Pasajes: US$ 2,439.80 x 3 personas = US$ 7,319.40. Viáticos: US$ 440.00 x 12 días x 3 personas = US$ 15,840.00. Total: US$ 23,159.40, con cargo al presupuesto de la Fuerza Aérea del Perú."
   },
+  "2576761-1": {
+   "fecha": "2026-11-22",
+   "modelo": "claude-haiku-5-5",
+   "nota": "",
+   "resumen": "Autoriza el viaje en comisión de servicio a Valparaíso, Chile, del personal titular y suplente de la Marina de Guerra del Perú para participar en el Senior Leadership Summit del RIMPAC-2026, del 29 de noviembre al 1 de diciembre de 2026, con salida el 28 de noviembre y retorno el 2 de diciembre. Los nombres figuran en un Anexo que no aparece en el texto. Total a pagar: US$ 5,146.00 (pasajes aéreos US$ 2,886.00; pasajes terrestres US$ 40.00; viáticos US$ 2,220.00), con cargo a la Marina de Guerra del Perú; el suplente solo viaja si el titular no puede hacerlo."
+  },
+  "2576787-1": {
+   "fecha": "2026-11-22",
+   "modelo": "claude-haiku-5-5",
+   "nota": "",
+   "resumen": "Autoriza el viaje en comisión de servicios de los inspectores de la Dirección General de Aeronáutica Civil del MTC, ANDRES JULIO VILLAVERDE VILLAVERDE y TONY CRUZ VILCARROMERO, a Santiago, República de Chile, del 23 al 25 de noviembre de 2026, para inspección técnica por renovación de la constancia de conformidad de la aeronave AIRBUS A321-251NX, matrícula CC-DCD, solicitada por SKY AIRLINE PERU S.A.C. Según el texto, los gastos del viaje, incluidos los viáticos de US$ 1,110.00 por cada inspector, son cubiertos por SKY AIRLINE PERU S.A.C. mediante las constancias de pago de tasas. El texto no indica monto de pasajes."
+  },
   "2576816-1": {
    "fecha": "2026-11-21",
    "modelo": "claude-haiku-5-5",
@@ -834,11 +714,23 @@
    "nota": "",
    "resumen": "Resolución de Secretaría de Gestión Pública N° 012-2026-PCM-SGP que aprueba los Lineamientos N° 004-2026-PCM/SGP “Procesos estratégicos y de soporte estandarizados”, dirigidos a las entidades públicas bajo el ámbito del Sistema Administrativo de Modernización de la Gestión Pública, como orientación para implementar procesos estratégicos y de soporte."
   },
+  "2577187-1": {
+   "fecha": "2026-11-22",
+   "modelo": "claude-haiku-5-5",
+   "nota": "",
+   "resumen": "La Resolución Directoral Ejecutiva N° 031-2026-PMAC/DE del Programa MAC aprueba la Directiva N° 007-2026-PMAC y sus Formatos N° 1 al 8, que regulan la delegación de la administración de los canales de atención y la participación de entidades públicas y privadas en la Plataforma MAC. Se aplica a las Unidades Funcionales del Programa MAC, entidades administradoras y participantes de la Plataforma MAC."
+  },
   "2577189-1": {
    "fecha": "2026-11-21",
    "modelo": "claude-haiku-5-5",
    "nota": "",
    "resumen": "Autoriza el viaje en comisión de servicios a Bogotá y Marandúa, Vichada, Colombia, del 23 al 29 de noviembre de 2026, con salida el 22 y retorno el 30 de noviembre, de Carlos Martín Lipa Fernández (Técnico Inspector FAP, titular) y Elvis Sánchez Díaz (Suboficial de Primera FAP, suplente), para un intercambio sobre el Sistema de Entrega Aérea de Precisión FIREFLY II. Pasajes aéreos de ida y vuelta: US$ 1,943.82 x 1 persona, total US$ 1,943.82, pagados por la Fuerza Aérea del Perú. El texto no indica monto de viáticos; la Fuerza Aeroespacial Colombiana proporciona alimentación, alojamiento y transporte interno."
+  },
+  "2577192-1": {
+   "fecha": "2026-11-22",
+   "modelo": "claude-haiku-5-5",
+   "nota": "",
+   "resumen": "Autoriza el viaje en comisión de servicio a Santiago de Chile del Contralmirante (r) EDWIN RAFAEL ZEGARRA VALDIVIA, Viceministro de Políticas para la Defensa, del Contralmirante (r) PERCY ANTONIO RAMIREZ RODRIGUEZ y del Coronel FAP (r) VICTOR MANUEL AGUILAR BARREDA, para la III Comisión Mixta de Cooperación en Defensa Chile-Perú (10 al 11 de diciembre de 2026), con salida el 9 y retorno el 12 de diciembre. Pasajes: US$ 4,210.20 (US$ 1,403.40 por persona, incluido TUUA); viáticos: US$ 3,330.00 (US$ 370.00 por día y persona, 3 días); total US$ 7,540.20, con cargo al Ministerio de Defensa."
   },
   "2577205-3": {
    "fecha": "2026-11-21",
@@ -869,6 +761,24 @@
    "modelo": "claude-haiku-5-5",
    "nota": "",
    "resumen": "El Decreto Supremo N° 263-2026-EF autoriza una Transferencia de Partidas en el Presupuesto del Sector Público para el Año Fiscal 2026 por hasta S/ 2 000 000,00 (DOS MILLONES Y 00/100 SOLES), en la fuente Recursos Ordinarios, con cargo al Ministerio de Educación a favor de la Municipalidad Distrital de Orurillo (provincia de Melgar, Puno). Los fondos financian la continuidad del proyecto de inversión con CUI N° 2498315 'Mejoramiento del servicio educativo del nivel primaria de la I.E. N° 70497', conforme a la Cuadragésima Sexta Disposición Complementaria Final de la Ley N° 32732. El Ministerio de Educación monitorea el cumplimiento de los fines."
+  },
+  "2577210-1": {
+   "fecha": "2026-11-22",
+   "modelo": "claude-haiku-5-5",
+   "nota": "",
+   "resumen": "Autoriza el viaje en comisión de servicios del señor Yaco Paul Rosas Romero, Director de la Dirección de Portafolio de Proyectos de PROINVERSIÓN, a Cartagena de Indias, Colombia, del 26 al 28 de noviembre de 2026, para participar en el XXIII Congreso Nacional de Infraestructura. Pasajes aéreos: US$ 1 413.16; viáticos (1+1): US$ 740.00; los gastos se cubren con cargo al presupuesto de PROINVERSIÓN. No otorga exoneración de impuestos de aduana."
+  },
+  "2577211-1": {
+   "fecha": "2026-11-22",
+   "modelo": "claude-haiku-5-5",
+   "nota": "",
+   "resumen": "Autoriza el viaje en comisión de servicios de los químico farmacéuticos CELINA LIDIA TICONA CANAZA y CESAR ABEL ROSSI CORTEZ, de la DIGEMID, a Vadodara y Tajpura, India, del 20 de noviembre al 10 de diciembre de 2026, para inspeccionar laboratorios de BDR PHARMACEUTICALS INTERNATIONAL PVT LTD. Pasajes: US$ 14,434.80 (US$ 7,217.40 por persona, incluido TUUA); viáticos: US$ 18,000.00 (US$ 9,000.00 por persona); total US$ 32,434.80, con cargo al presupuesto del Ministerio de Salud. Según los considerandos, la empresa LABORATORIOS AC FARMA S.A. abonó estos costos."
+  },
+  "2577216-1": {
+   "fecha": "2026-11-22",
+   "modelo": "claude-haiku-5-5",
+   "nota": "",
+   "resumen": "Autoriza el viaje en comisión de servicios del señor GUSTAVO ALEXANDER LÓPEZ QUISPE, Director General de Derechos Fundamentales y Seguridad y Salud en el Trabajo, a Brasilia, Brasil, del 23 al 28 de noviembre de 2026, para participar en el Taller Regional sobre Igualdad Salarial en representación del MTPE. Viáticos: US$ 370.00 (US$ 74.00 por día, 5 días), con cargo al Pliego 012. Los pasajes aéreos, alojamiento y alimentación parcial los asume la organización del evento; el servidor debe presentar un informe en 15 días."
   }
  }
 }
