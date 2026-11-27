@@ -1,83 +1,5 @@
 {
  "resumenes": {
-  "2574538-1": {
-   "fecha": "2026-11-16",
-   "modelo": "claude-haiku-5-5",
-   "nota": "",
-   "resumen": "La RM 1634-2026-IN designa a la señora MARCIA ANABEL AGUILA SALAZAR en el cargo de Jefa de Atención al Ciudadano y Gestión Documental de la Oficina de Atención al Ciudadano y Gestión Documental de la Secretaría General del Ministerio del Interior, por encontrarse vacante el cargo."
-  },
-  "2575009-1": {
-   "fecha": "2026-11-16",
-   "modelo": "claude-haiku-5-5",
-   "nota": "",
-   "resumen": "La RM 01568-2026-DE autoriza el viaje de los Capitanes de Corbeta JOSE CARLOS CARVAJAL BRAIN y MILAN JOSIP PERKOVIC GRUBISIC a Bogotá, República de Colombia, del 17 al 20 de noviembre de 2026, en misión de estudios del Programa de Comando y Estado Mayor de la Escuela Superior de Guerra Aérea de la FAP. La Marina de Guerra del Perú paga viáticos de US$ 370.00 x 4 días x 2 personas, total US$ 2,960.00. El traslado de ida y retorno se realiza en aeronave de la FAP."
-  },
-  "2575010-1": {
-   "fecha": "2026-11-16",
-   "modelo": "claude-haiku-5-5",
-   "nota": "",
-   "resumen": "La RM 01569-2026-DE autoriza el viaje de los Mayores EP MAIKEL PIERE HINOJOSA PERLACIOS, JUAN JOSE LUIS ALBERTO FRANCIA SOLIS y CLAUDIA MILUSKA SURCO FLORES a Bogotá, República de Colombia, del 17 al 20 de noviembre de 2026, para el viaje de estudios del PCEM 2026. El Ejército del Perú paga viáticos de US$ 370.00 x 3 personas x 4 días, total US$ 4,440.00, con cargo a su presupuesto institucional 2026. El traslado de ida y retorno se realiza en aeronave de la FAP. El personal debe presentar un informe en 15 días calendario tras el retorno."
-  },
-  "2575011-1": {
-   "fecha": "2026-11-16",
-   "modelo": "claude-haiku-5-5",
-   "nota": "",
-   "resumen": "Designa al señor JORGE MANUEL MOSTO LAMA en el cargo de Director de la Dirección de Circulación Vial de la Dirección General de Autorizaciones en Transportes del Ministerio de Transportes y Comunicaciones, por encontrarse vacante dicho cargo. La resolución está firmada por el Ministro de Transportes y Comunicaciones, José Angello Tangherlini Casal, y no indica una fecha desde la que rige la designación."
-  },
-  "2575013-1": {
-   "fecha": "2026-11-16",
-   "modelo": "claude-haiku-5-5",
-   "nota": "",
-   "resumen": "La RM 000552-2026-MIMP designa al señor MANUEL EDUARDO LARREA SANCHEZ en el cargo de confianza de Asesor II de la Dirección Ejecutiva del Programa Integral Nacional para el Bienestar Familiar – INABIF del Ministerio de la Mujer y Poblaciones Vulnerables, por encontrarse vacante el cargo."
-  },
-  "2575014-1": {
-   "fecha": "2026-11-16",
-   "modelo": "claude-haiku-5-5",
-   "nota": "",
-   "resumen": "La RM 000553-2026-MIMP designa a la señora ELISABETH GAMARRA FARFAN como miembro del Directorio de la Sociedad de Beneficencia de Cusco, en representación del Ministerio de la Mujer y Poblaciones Vulnerables. La designación se sustenta en el Decreto Legislativo N° 1411, que establece que el Directorio está integrado por cinco miembros, dos de ellos designados por el MIMP."
-  },
-  "2575015-1": {
-   "fecha": "2026-11-16",
-   "modelo": "claude-haiku-5-5",
-   "nota": "",
-   "resumen": "Resolución Ministerial N° 000554-2026-MIMP designa como miembro del Directorio de la Sociedad de Beneficencia de Trujillo, en representación del Ministerio de la Mujer y Poblaciones Vulnerables, al señor ABEL BERNARDO ALVA PEREZ. La designación se formaliza conforme al Decreto Legislativo N° 1411."
-  },
-  "2575016-1": {
-   "fecha": "2026-11-16",
-   "modelo": "claude-haiku-5-5",
-   "nota": "",
-   "resumen": "Resolución Ministerial N° 000555-2026-MIMP designa a la señora PAOLA JUSSIEU SALAS ARANDA en el cargo de confianza de Asesora II de la Dirección Ejecutiva del Programa Integral Nacional para el Bienestar Familiar - INABIF, por encontrarse vacante dicho cargo."
-  },
-  "2575017-1": {
-   "fecha": "2026-11-16",
-   "modelo": "claude-haiku-5-5",
-   "nota": "",
-   "resumen": "Resolución Ministerial N° 000556-2026-MIMP designa al señor NESTOR ALFONSO SUPANTA VELASQUEZ en el cargo de confianza de Jefe de Unidad de Asesoramiento de la Unidad de Planeamiento, Presupuesto y Modernización del INABIF, por encontrarse vacante dicho cargo."
-  },
-  "2575018-1": {
-   "fecha": "2026-11-16",
-   "modelo": "claude-haiku-5-5",
-   "nota": "",
-   "resumen": "Resolución Ministerial N° 000558-2026-MIMP designa al señor PEDRO ALBERTO FARJE HORNA en el cargo de confianza de Jefe de Unidad de Apoyo de la Unidad de Tecnologías de la Información del INABIF, por encontrarse vacante dicho cargo."
-  },
-  "2575019-1": {
-   "fecha": "2026-11-16",
-   "modelo": "claude-haiku-5-5",
-   "nota": "",
-   "resumen": "Resolución Ministerial N° 000559-2026-MIMP designa a la señora MARIA YAMINA DE LA CRUZ HERNANDEZ en el cargo de confianza de Asesora I de la Unidad de Recursos Humanos del INABIF, por encontrarse vacante dicho cargo."
-  },
-  "2575020-1": {
-   "fecha": "2026-11-16",
-   "modelo": "claude-haiku-5-5",
-   "nota": "",
-   "resumen": "Resolución Ministerial N° 000560-2026-MIMP designa al señor LUIS FELIPE RAMIREZ GUERRERO en el cargo de confianza de Jefe de Unidad de Apoyo de la Unidad de Recursos Humanos del INABIF, por encontrarse vacante dicho cargo."
-  },
-  "2575021-1": {
-   "fecha": "2026-11-16",
-   "modelo": "claude-haiku-5-5",
-   "nota": "",
-   "resumen": "La RM 425-2026-MINCETUR autoriza el viaje de Ygor Yvan Rojas Chu (Director de la Dirección de Coordinación de las Oficinas Regionales) y Aldo Miguel Palomino Veliz (profesional de la misma dirección) de PROMPERÚ a Manaos, Brasil, del 17 al 20 de noviembre de 2026, para participar en el evento 'Amazonian Flavors 2026'. El BID cubre pasajes aéreos y alojamiento; PROMPERÚ asume alimentación y traslados internos, con viáticos de US$ 185,00 x 3 días (US$ 555,00 cada uno), con cargo al Pliego 008. Informe y rendición de cuentas dentro de 15 días calendario tras el retorno."
-  },
   "2575384-1": {
    "fecha": "2026-11-19",
    "modelo": "claude-haiku-5-5",
@@ -702,6 +624,12 @@
    "nota": "",
    "resumen": "La Resolución Ministerial N° 1709-2026-IN autoriza, en comisión de servicio, del 30 de noviembre al 4 de diciembre de 2026, el viaje a Bogotá (Colombia) de los suboficiales PNP Freddy Arturo Inca Condorpuza (Suboficial Técnico de Primera) y Fernando Guillén Villafuerte (Suboficial Técnico de Tercera), para trasladar al ciudadano colombiano Diego Alberto Londoño Henao en extradición activa. Viáticos: US$ 370,00 por día, 4 días, 2 personas, total US$ 2 960,00, con cargo a la UE 002 de la PNP, Pliego 007; el texto indica que los pasajes aéreos son asumidos por el Poder Judicial, sin señalar su monto."
   },
+  "2578528-1": {
+   "fecha": "2026-11-27",
+   "modelo": "claude-haiku-5-5",
+   "nota": "",
+   "resumen": "Autoriza el viaje de María Fernanda García-Yrigoyen Maúrtua, Superintendenta Adjunta de la Unidad de Inteligencia Financiera del Perú, y Jorge Yumi Taba, Gerente Central de Planeamiento, Innovación y Tecnología, como Coordinador del GTCD del GAFILAT, del 29 de noviembre al 04 de diciembre de 2026, a la Ciudad de Panamá, para participar en el LIV Pleno de Representantes del GAFILAT y reuniones de grupos de trabajo. Los gastos se autorizan con cargo al presupuesto 2026 por pasajes aéreos de US$ 1 340,18 y viáticos de US$ 3 780,00. Deberán presentar un informe en 10 días hábiles tras su reincorporación."
+  },
   "2578543-1": {
    "fecha": "2026-11-26",
    "modelo": "claude-haiku-5-5",
@@ -725,6 +653,48 @@
    "modelo": "claude-haiku-5-5",
    "nota": "",
    "resumen": "La Resolución Suprema N° 025-2026-MINAM acepta la renuncia presentada por el señor Jerry Espinoza Salvatierra al cargo de miembro del Consejo Directivo del Organismo de Evaluación y Fiscalización Ambiental (OEFA), cargo al que había sido designado mediante Resolución Suprema N° 021-2026-MINAM. El texto no indica la fecha desde la que rige la aceptación."
+  },
+  "2578633-1": {
+   "fecha": "2026-11-27",
+   "modelo": "claude-haiku-5-5",
+   "nota": "",
+   "resumen": "Autoriza el viaje a Santiago de Chile, en comisión de servicios, del 1 al 4 de diciembre de 2026, de los suboficiales PNP EDUARDO GUERRERO DE LA CRUZ (Suboficial Técnico de Tercera) y EDWAN JHONY CABANILLAS ALVITES (Suboficial de Segunda), para ejecutar la extradición activa del ciudadano GUSTAVO EDUARDO CARVALLO CULQUE. Los viáticos suman US$ 2 960,00 (US$ 370,00 por 4 días y 2 personas), con cargo a la Unidad Ejecutora 002 de la PNP. El texto no indica el monto de los pasajes; los considerandos señalan que los asume el Poder Judicial."
+  },
+  "2578659-1": {
+   "fecha": "2026-11-27",
+   "modelo": "claude-haiku-5-5",
+   "nota": "",
+   "resumen": "La Secretaría de Gestión Social y Diálogo modifica el artículo 10 de la RSGSD 003-2021-PCM/SGSD, que conformó el Grupo de Trabajo Comité de Monitoreo, Seguimiento y Verificación de acuerdos de la Mesa de Diálogo para analizar la problemática minera del departamento de Moquegua. Amplía su vigencia hasta el 30 de noviembre de 2027, que antes era el 30 de noviembre de 2026, por los dieciocho compromisos pendientes informados. La vigencia puede ser ampliada a propuesta de la Secretaría Técnica."
+  },
+  "2578702-1": {
+   "fecha": "2026-11-27",
+   "modelo": "claude-haiku-5-5",
+   "nota": "",
+   "resumen": "Autoriza el viaje en comisión de servicios, del 2 al 4 de diciembre de 2026, a la ciudad de Barranquilla, Colombia, de cinco funcionarios diplomáticos del Ministerio de Relaciones Exteriores: Roberto Rafael Max Rodríguez Arnillas, Roland Piero Denegri Aguirre, Julio Cromwell Ubillus Boada, Diego Rodolfo Rodríguez Sánchez y Alejandro Hidalgo Gallegos, para apoyar las reuniones preparatorias del Encuentro Presidencial y VII Gabinete Binacional Perú-Colombia. Los gastos se cubren con el pliego del Ministerio; cada uno tiene pasajes aéreos de USD 1 075.00 y viáticos de USD 370.00 por día, con 2 + 1 días y total de viáticos de USD 1 110.00. Deberán presentar un informe en 15 días tras su retorno."
+  },
+  "2578895-1": {
+   "fecha": "2026-11-27",
+   "modelo": "claude-haiku-5-5",
+   "nota": "",
+   "resumen": "Autoriza el viaje a París, República Francesa, en comisión de servicios, de la señora LOURDES DEL PILAR ALVAREZ CHAVEZ, Directora General de la Oficina General de Evaluación de Impacto y Estudios Económicos, del 30 de noviembre al 4 de diciembre de 2026. Participará en la 138ª Sesión del Comité de Pesca de la OCDE, realizada del 2 al 3 de diciembre. Pasajes aéreos US$ 3 429,19 (incluido TUUA) y viáticos US$ 2 160,00, con cargo al Presupuesto Institucional 2026 del Ministerio de la Producción."
+  },
+  "2578949-1": {
+   "fecha": "2026-11-27",
+   "modelo": "claude-haiku-5-5",
+   "nota": "",
+   "resumen": "Autoriza el viaje a Chile, en comisión de servicios, del Vicealmirante JULIO CESAR CACHO MORAN y del Capitán de Corbeta HEINZ ALEXANDER DOBBERTIN GUERRERO, de la Marina de Guerra del Perú, para la visita a la Base Naval de Talcahuano (30 de noviembre de 2026), EXPONAVAL 2026 en Santiago (1 al 3 de diciembre) y DV Day en Valparaíso (3 de diciembre). Salida el 29 de noviembre y retorno el 4 de diciembre de 2026. Pasajes US$ 3,045.36 y viáticos US$ 2,960.00, total US$ 6,005.36, con cargo al presupuesto institucional de la Marina de Guerra."
+  },
+  "2578950-1": {
+   "fecha": "2026-11-27",
+   "modelo": "claude-haiku-5-5",
+   "nota": "",
+   "resumen": "Autoriza el viaje a Ginebra, Confederación Suiza, en comisión de servicios, del Coronel EP (R) GUILLERMO AUGUSTO PORTILLO CARRILLO, Director de Asuntos Multilaterales y Cooperación Internacional de la Dirección General de Relaciones Internacionales, para participar en la 23 Reunión de los Estados Partes de la Convención sobre la Prohibición de Minas Antipersonal, del 30 de noviembre al 4 de diciembre de 2026. Salida el 28 de noviembre y retorno el 5 de diciembre. Pasajes US$ 3,502.00 y viáticos US$ 3,240.00, total US$ 6,742.00, a cargo del Ministerio de Defensa."
+  },
+  "2578953-1": {
+   "fecha": "2026-11-27",
+   "modelo": "claude-haiku-5-5",
+   "nota": "",
+   "resumen": "La Gerencia General de la ANIN modifica los literales c), l) y r) del artículo 1 y los literales b) y d) del artículo 3 de la RGG 000001-2026-ANIN/GG, que delegó facultades en funcionarios de la entidad. Los cambios alcanzan la supervisión de contratos menores, las modificaciones contractuales y la resolución de contratos mayores a 8 UIT, y los contratos de Catálogos Electrónicos de Acuerdo Marco menores a S/ 100,000.00. Las delegaciones rigen durante el Año Fiscal 2026."
   }
  }
 }
